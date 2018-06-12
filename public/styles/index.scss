@@ -1,4 +1,4 @@
-$translatePixels: -6.5px;
+$translatePixels: -6.25px;
 
 html {
     height: 100%;
@@ -35,10 +35,11 @@ html {
 
                 #menuButton {
                     position: absolute;
+                    top: 11%;
                     padding: 10px;
                     z-index: 999;
-                    width: 45px;
-                    height: 45px;
+                    width: 46px;
+                    height: 46px;
                     display: inline-block;
 
                     .menuIcon1, .menuIcon2, .menuIcon3 {
@@ -50,20 +51,20 @@ html {
                         margin-left: 4px;
                         margin-right: 0px;
                         border-radius: 8px;
-                        transition: 1s;
+                        transition: 0.75s;
                     }
 
                     &:hover {
                         div {
                             color: #8E9094;
-                            background-color: #404142;
+                            background-color: #686868;
                         }
                     }
 
                     &.open {
                         .menuIcon1 {
-                            -webkit-transform: rotate(-405deg) translate($translatePixels, 6.5px);
-                            transform: rotate(-405deg) translate($translatePixels, 6.5px);
+                            -webkit-transform: rotate(-405deg) translate($translatePixels, 6.25px);
+                            transform: rotate(-405deg) translate($translatePixels, 6.25px);
                         }
 
                         .menuIcon2 {
