@@ -1,3 +1,5 @@
+var socket = io();
+
 if (!window.Promise) {
     window.Promise = Promise;
 }
@@ -9,3 +11,8 @@ if ('serviceWorker' in navigator) {
 else {
     console.log ('Browser doesn\'t support Service Workers.');
 }
+
+$('#submitUsername').click (() => {
+    console.log (`Username: ${$('.username').val()}`)
+    socket.emit ('setName', $('.username').val());
+});

@@ -2,8 +2,9 @@
     <head>
         <title>DropTop</title>
         <base href="/">
-        <script src="scripts/index.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="scripts/index.js"></script>
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="styles/index.min.css">
@@ -20,24 +21,10 @@
     </head>
     <body>
         <div class="jumbotron">Test</div>
+
         <div class="mainBody">
-            <div class="menuSection">
-                <div id="menuButton" onclick="myFunction(this)"><div class="menuIcon1" id="menuIcon1"></div><div class="menuIcon2" id="menuIcon2"></div><div class="menuIcon3" id="menuIcon3"></div></div>
-                <div id="menu" class="menu">
-                    <div class="menuOptions container-fluid">
-                        <div class="row">
-                            <button class="addNew">New</button>
-                        </div>
-                        <div class="row">
-                            <button class="">Settings</button>
-                        </div>
-                        
-                    </div>
-                </div>           
-            </div>            
-            <script>function myFunction(x) {x.classList.toggle("open"); x.parentElement.classList.toggle("open");}</script>
-            
-            <div class="displayArea"></div>
+            <input type="text" name="username" placeholder="Username">
+            <button type="submit" id="submitUsername">Submit</button>
         </div>
     </body>
 </html>
