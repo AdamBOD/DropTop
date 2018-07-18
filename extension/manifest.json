@@ -1,0 +1,18 @@
+{
+    "name": "DropTop",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "Share small snippets of data between devices",
+    "permissions": ["storage"],
+
+    "background": {
+        "scripts": ["assets/scripts/background.js"],
+        "persistent": false
+    },
+
+    "page_action": {
+        "default_popup": "popup.html"
+    },
+    
+    "options_page": "popup.html"
+}
