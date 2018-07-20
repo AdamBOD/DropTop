@@ -1,10 +1,13 @@
 const express = require ('express');
+const session = require ('express-session');
 const app = express ();
 var http = require ('http').Server (app);
 const io = require ('socket.io')(http);
 const mongoClient = require ('mongodb').MongoClient;
 var mongoUrl = "mongodb://localhost:27017/DropTop";
 let dbo = null;
+
+const sess = "";
 
 mongoClient.connect (mongoUrl, (dbError, db) => {
     if (dbError) throw dbError;
@@ -29,6 +32,8 @@ mongoClient.connect (mongoUrl, (dbError, db) => {
 
 app.use (express.static ('public'));
 
+app.use (session({secret: "sessionSecret"}))
+
 app.get ('/', (req, res) => {
     res.sendFile ('/index.html');
 });
@@ -41,6 +46,7 @@ io.on ('connection', (socket) => {
     console.log (`User @${socket.id} has connected`);
     socket.on ('disconnect', () => {
         console.log (`User @${socket.id} has disconnected`);
+        console.log (sess)
     });
 
     socket.on ('setName', (data) => {
@@ -50,5 +56,5 @@ io.on ('connection', (socket) => {
             console.log (res[0].data);
         });
         socket.emit ("welcome", returnData);
-    })
+    });
 });

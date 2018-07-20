@@ -1,12 +1,19 @@
 $translatePixels: -6.25px;
-
 html {
     height: 100%;
-
     body {
         height: 100%;
         margin: 0px;
-        background-color: azure;
+        background-color: #f9f9f9;
+
+        &.iframeFormat {
+            width: 90%;
+            margin-left: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         .jumbotron {
             width: 100%;
@@ -19,7 +26,6 @@ html {
             border-radius: 0;
             margin: 0;
         }
-
         .container {
             .nav-tabs {
                 .nav-item.show {
@@ -29,10 +35,9 @@ html {
                 }
             }
         }
-
         .mainBody {
             width: 100%;
-            height: 90%;
+            height: calc(90% - 20px);
 
             .toolbar {
                 height: 100%;
@@ -40,12 +45,177 @@ html {
                 background-color: gray;
                 float: left;
             }
-
             .displayArea {
                 height: 100%;
                 width: 85%;
                 background-color: lightgray;
                 float: left;
+            }
+            @import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,600,600italic,700,700italic);
+            font-family: 'Roboto';
+            background-color: #f9f9f9;
+
+            .container {
+                height: 90%;
+                width: 100%;
+                padding: 0;
+                margin: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
+
+                header {
+                    position: relative;
+
+                    #material-tabs {
+                        position: relative;
+                        display: block;
+                        padding: 0;
+                        border-bottom: 1px solid #e0e0e0;
+                    }
+                    #material-tabs>a {
+                        position: relative;
+                        display: inline-block;
+                        text-decoration: none;
+                        padding: 22px;
+                        text-transform: uppercase;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #424f5a;
+                        text-align: center;
+                        outline: 0;
+                    }
+                    #material-tabs>a.active {
+                        font-weight: 700;
+                        outline: none;
+                    }
+                    #material-tabs>a:not(.active):hover {
+                        background-color: inherit;
+                        color: #7c848a;
+                    }
+                }
+                .hide {
+                    display: none;
+                }
+                .tab-content {
+                    padding: 25px;
+                }
+            }
+
+            .form-container {
+                width: 300px;
+                height: 350px;
+
+                display: table;
+                position: relative;
+
+                margin: auto;
+                margin-top: 200px;
+
+                .logoContainer {
+                    position: absolute;
+                    top: -75px;
+                    left: calc(50% - 50px);
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+
+                .userForm {
+                    display: table-cell;
+                    vertical-align: middle;
+
+                    .row {
+                        margin-bottom: 15px;
+
+                        input {
+                            width: 100%;
+
+                            &.hasError {
+                                border: 1px solid #ee2f2f;
+                                background-color: #ffdcdc;
+                            }
+                        }
+
+                        .form-text {
+                            display: none;
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+
+                        button {
+                            width: 125px;
+                        }
+
+                        .loginLinkContainer {
+                            position: relative;
+
+                            a {
+                                color: #007bff;
+                                position: absolute;
+                                bottom: 0;
+                                right: 0
+                            }
+                        }
+                    }
+                }
+            }
+            
+            @media only screen and (max-width: 520px) {
+                .nav-tabs#material-tabs>li>a {
+                    font-size: 11px;
+                }
+            }
+            .yellow-bar {
+                position: absolute;
+                z-index: 10;
+                bottom: 0;
+                height: 3px;
+                background: #458CFF;
+                display: block;
+                left: 0;
+                transition: left .2s ease;
+                -webkit-transition: left .2s ease;
+            }
+            #tab1-tab.active~span.yellow-bar {
+                left: 0;
+                width: 95px;
+            }
+            #tab2-tab.active~span.yellow-bar {
+                left: 100px;
+                width: 77px;
+            }
+            #tab3-tab.active~span.yellow-bar {
+                left: 182px;
+                width: 110px;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        body {
+            .jumbotron {
+                display: none;
+            }
+
+            .mainBody {
+                height: 100%;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .container {
+                    width: 100%;
+                    height: 100%;
+    
+                    margin: 0px;
+                }
             }
         }
     }
