@@ -19,6 +19,8 @@
   "homepage": "https://github.com/AdamBOD/DropTop#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "mongodb": "^3.1.0",
+    "mongoose": "^5.2.4",
     "socket.io": "^2.1.1"
   }
 }

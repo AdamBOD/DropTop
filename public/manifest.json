@@ -1,5 +1,10 @@
 {
-    "short_name": "DropTop",
     "name": "DropTop",
-    "background_color": "azure"
+    "short_name": "DropTop",
+    "theme_color": "#5f9ecf",
+    "background_color": "#5f9ea0",
+
+    "start_url": "index.html",
+    "display": "standalone",
+    "orientation": "portrait-primary"
 }
