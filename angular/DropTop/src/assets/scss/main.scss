@@ -26,18 +26,39 @@ html {
             border-radius: 0;
             margin: 0;
         }
-        .container {
-            .nav-tabs {
-                .nav-item.show {
-                    .nav-link.active {
-                        border-bottom: 4px solid azure !important;
-                    }
-                }
-            }
-        }
         .mainBody {
             width: 100%;
             height: calc(90% - 20px);
+
+            app-root {
+                width: 100%;
+                height: 100%;
+            }
+
+            mat-tab-group {
+                mat-tab-header {
+                    .mat-tab-label-container {
+                        .mat-tab-list {
+                            .mat-tab-labels {
+                                .mat-tab-label {
+                                    width: 33.33%;
+                                }
+
+                                mat-ink-bar {
+                                    width: 33.33%;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .mat-tab-body-wrapper {
+                    mat-tab-body {
+                        margin-left: 35px;
+                        margin-right: 35px;
+                    }
+                }
+            }
 
             .toolbar {
                 height: 100%;
@@ -50,55 +71,6 @@ html {
                 width: 85%;
                 background-color: lightgray;
                 float: left;
-            }
-            @import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,600,600italic,700,700italic);
-            font-family: 'Roboto';
-            background-color: #f9f9f9;
-
-            .container {
-                height: 90%;
-                width: 100%;
-                padding: 0;
-                margin: 10px;
-                border-radius: 5px;
-                box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
-
-                header {
-                    position: relative;
-
-                    #material-tabs {
-                        position: relative;
-                        display: block;
-                        padding: 0;
-                        border-bottom: 1px solid #e0e0e0;
-                    }
-                    #material-tabs>a {
-                        position: relative;
-                        display: inline-block;
-                        text-decoration: none;
-                        padding: 22px;
-                        text-transform: uppercase;
-                        font-size: 14px;
-                        font-weight: 600;
-                        color: #424f5a;
-                        text-align: center;
-                        outline: 0;
-                    }
-                    #material-tabs>a.active {
-                        font-weight: 700;
-                        outline: none;
-                    }
-                    #material-tabs>a:not(.active):hover {
-                        background-color: inherit;
-                        color: #7c848a;
-                    }
-                }
-                .hide {
-                    display: none;
-                }
-                .tab-content {
-                    padding: 25px;
-                }
             }
 
             .form-container {
@@ -163,35 +135,6 @@ html {
                     }
                 }
             }
-            
-            @media only screen and (max-width: 520px) {
-                .nav-tabs#material-tabs>li>a {
-                    font-size: 11px;
-                }
-            }
-            .yellow-bar {
-                position: absolute;
-                z-index: 10;
-                bottom: 0;
-                height: 3px;
-                background: #458CFF;
-                display: block;
-                left: 0;
-                transition: left .2s ease;
-                -webkit-transition: left .2s ease;
-            }
-            #tab1-tab.active~span.yellow-bar {
-                left: 0;
-                width: 95px;
-            }
-            #tab2-tab.active~span.yellow-bar {
-                left: 100px;
-                width: 77px;
-            }
-            #tab3-tab.active~span.yellow-bar {
-                left: 182px;
-                width: 110px;
-            }
         }
     }
 }
@@ -209,6 +152,15 @@ html {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                mat-tab-group {                    
+                    .mat-tab-body-wrapper {
+                        mat-tab-body {
+                            margin-left: 0px;
+                            margin-right: 0px;
+                        }
+                    }
+                }
 
                 .container {
                     width: 100%;
