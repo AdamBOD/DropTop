@@ -7,6 +7,7 @@ var logger = require('morgan');
 // var mongoUrl = "mongodb://localhost:27017/DropTop";
 
 var apiRouter = require('./routes/userData');
+var mongoose = require('mongoose');
 
 var app = express();
 
@@ -17,27 +18,9 @@ app.use(express.static(path.join(__dirname, 'dist/DropTop')));
 app.use('/', express.static(path.join(__dirname, 'dist/DropTop')));
 app.use('/api', apiRouter);
 
-// mongoClient.connect (mongoUrl, (dbError, db) => {
-//   if (dbError) throw dbError;
-//   console.log ("DB created");
-
-//   dbo = db.db("DropTop");
-//   // dbo.collection("userData").insertOne (
-//   //     {
-//   //         userId: "3161613264132064", data: [ {name: "Entry01", data: "https://webenv.io/spinz"} ]
-//   //     },
-//   //     (dbError, res) => {
-//   //         if (dbError) throw dbError;
-//   //         console.log (`Object inserted ${res}`);
-//   //     }
-//   // );
-
-//   // dbo.collection("userData").find ({ userId: "3161613264132064" }).toArray ((dbError, res) => {
-//   //     if (dbError) throw dbError;
-//   //     console.log (res[0].data);
-//   // });
-//   db.close();
-// });
+mongoose.connect('mongodb://localhost/DropTop', { promiseLibrary: require('bluebird') })
+  .then(() =>  console.log('connection successful'))
+  .catch((err) => console.error(err));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
