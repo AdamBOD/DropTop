@@ -3,8 +3,6 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-// var mongoClient = require ('mongodb').MongoClient;
-// var mongoUrl = "mongodb://localhost:27017/DropTop";
 
 var apiRouter = require('./routes/userData');
 var mongoose = require('mongoose');
