@@ -45,16 +45,43 @@ $(document).ready(function () {
     console.log (localStorage.getItem ("sessionID"));
 
     if (localStorage.getItem ("sessionID") === null) {
-        console.log ("Not logged in")
-        $(".mainBody").fadeOut (() => {
-            $(".mainBody").load ("public/content/login.txt", () => {
-                $(".mainBody").fadeIn();
-                $(document).on ("click", "#logInButton", logIn ($("#username").val(), $("#password").val()));
-            });
-        });
+        loadLogin();
     }
 });
 
+function loadLogin () {
+    $(".mainBody").fadeOut (() => {
+        $(".mainBody").load ("/content/login.txt", () => {
+            $(".mainBody").fadeIn();
+            $(document).on ("click", "#logInButton", logIn ($("#username").val(), $("#password").val()));
+            $(document).on ("click", "#registerLink", loadRegister());
+        });
+    });
+}
+
+function loadRegister () {
+    $(".mainBody").fadeOut (() => {
+        $(".mainBody").load ("/content/register.txt", () => {
+            $(".mainBody").fadeIn();
+            $(document).on ("click", "#registerButton", register ($("#username").val(), $("#password").val()));
+            $(document).on ("click", "#registerLink", loadRegister());
+        });
+    });
+}
+
+function loadHome () {
+    $(".mainBody").fadeOut (() => {
+        $(".mainBody").load ("/content/home.txt", () => {
+            $(".mainBody").fadeIn();
+        });
+    });
+}
+
 function logIn (username, password) {
     socket.emit ("login", {user: username, password: password});
+    loadHome()
+}
+
+function register (username, password) {
+    socket.emit ("register", {user: username, password: password});
 }
