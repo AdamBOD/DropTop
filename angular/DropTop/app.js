@@ -36,4 +36,8 @@ app.use(function(err, req, res, next) {
   res.send(err.status);
 });
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/DropTop/index.html'));
+});
+
 module.exports = app;
