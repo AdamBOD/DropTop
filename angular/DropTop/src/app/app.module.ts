@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot ([
-      {path: 'home', component: UserDataComponent},
+      {path: 'home', component: UserDataComponent, canActivate: [ AuthGuard ]},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},      
       {path: "404", component: NotFoundComponent},
@@ -33,7 +35,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatTabsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
