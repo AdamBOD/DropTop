@@ -19,10 +19,18 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit () {
-        this.loginForm.setValue({
-            userName: '',
-            password: ''
-        });
+        if (localStorage.getItem ('username')) {
+            localStorage.removeItem ('username');
+            this.router.navigate(['/home']);
+        }
+        else {
+            this.loginForm.setValue({
+                userName: '',
+                password: ''
+            });
+            localStorage.setItem ('username', 'Adam');
+        }
+        
     }
 
     buildForm () {
@@ -33,19 +41,16 @@ export class LoginComponent implements OnInit {
     }
 
     login (loginData: any) {
-        if (this.loginForm && this.loginForm.valid) {
-            let userName = this.loginForm.value.userName;
-            let password = this.loginForm.value.password;
-            this.authService.login(userName, password);
+        console.log (loginData);
+        let userName = this.loginForm.value.userName;
+        let password = this.loginForm.value.password;
+        this.authService.login(userName, password);
 
-            if (this.authService.redirectUrl) {
-                this.router.navigateByUrl(this.authService.redirectUrl);
-            } else {
-                this.router.navigate(['/home']);
-            }
+        if (this.authService.redirectUrl) {
+            this.router.navigateByUrl(this.authService.redirectUrl);
         } else {
-            this.errorMessage = 'Please enter a user name and password.';
-        };
+            this.router.navigate(['/home']);
+        }
     }
 
 }

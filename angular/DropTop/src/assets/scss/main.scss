@@ -112,6 +112,11 @@ html {
 
                         .form-text {
                             display: none;
+
+                            &.visible {
+                                color: #ee2f2f !important;
+                                display: block;
+                            }
                         }
 
                         &:last-child {

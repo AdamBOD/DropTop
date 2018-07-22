@@ -23,6 +23,10 @@ export class AuthService {
         }
     }
 
+    register (username: string, password: string) {
+
+    }
+
     logout(): void {
     }
 }
