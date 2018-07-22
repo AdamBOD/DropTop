@@ -1,36 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html'
+    selector: 'app-login',
+    templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-  errorMessage: string;
+    loginForm: FormGroup;
+    errorMessage: string;
 
-  constructor (private authService: AuthService,
-               private router: Router
-              ) { }
+    constructor(private authService: AuthService,
+        private router: Router,
+        private formBuilder: FormBuilder
+    ) {
+        this.buildForm();
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit () {
+        this.loginForm.setValue({
+            userName: '',
+            password: ''
+        });
+    }
 
-  login(loginForm: NgForm) {
-    if (loginForm && loginForm.valid) {
-        let userName = loginForm.form.value.userName;
-        let password = loginForm.form.value.password;
-        this.authService.login(userName, password);
+    buildForm () {
+        this.loginForm = this.formBuilder.group({
+            userName: ['', [Validators.required, Validators.minLength(4)]],
+            password: ['', [Validators.required, Validators.minLength(8)]]
+        });
+    }
 
-        if (this.authService.redirectUrl) {
-            this.router.navigateByUrl(this.authService.redirectUrl);
+    login (loginData: any) {
+        if (this.loginForm && this.loginForm.valid) {
+            let userName = this.loginForm.value.userName;
+            let password = this.loginForm.value.password;
+            this.authService.login(userName, password);
+
+            if (this.authService.redirectUrl) {
+                this.router.navigateByUrl(this.authService.redirectUrl);
+            } else {
+                this.router.navigate(['/home']);
+            }
         } else {
-            this.router.navigate(['/home']);
-        }
-    } else {
-        this.errorMessage = 'Please enter a user name and password.';
-    };
-}
+            this.errorMessage = 'Please enter a user name and password.';
+        };
+    }
 
 }
