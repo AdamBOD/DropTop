@@ -1,14 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../shared/services/data.service';
 
 @Component({
   selector: 'app-user-data',
   templateUrl: './user-data.component.html'
 })
 export class UserDataComponent implements OnInit {
+  userData;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getData()
+      .subscribe (res => {
+        this.userData = res;
+      }, err => {
+        console.log (err);
+      });
   }
 
 }
