@@ -1,5 +1,5 @@
-<div class="dataTile">
+<div class="dataTile" (click)="openTileData()">
   <h1>{{ data.name }}</h1>
-  <h5>{{ data.data }}</h5>
-  <h6>{{ data.dateCreated }}</h6>
+  <a class="h5" href="{{data.data}}" target="_blank">{{ data.data }}</a>
+  <h6>{{ data.dateCreated | date: 'dd/MM/yyyy hh:mm' }}</h6>
 </div>

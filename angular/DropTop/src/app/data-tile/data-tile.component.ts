@@ -6,10 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DataTileComponent implements OnInit {
   @Input() data;
+  isEditing = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  openTileData () {
+    console.log (this.data);
+  }
 }

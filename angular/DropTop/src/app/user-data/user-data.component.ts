@@ -8,6 +8,8 @@ import { DataTileComponent } from '../data-tile/data-tile.component';
 })
 export class UserDataComponent implements OnInit {
   userData;
+  tabsIndex = 1;
+  addButtonVisible = true;
 
   constructor(private dataService: DataService) { }
 
@@ -20,4 +22,17 @@ export class UserDataComponent implements OnInit {
       });
   }
 
+  tabChanged (event) {
+    if (event.index == 1) {
+      this.addButtonVisible = true;
+    }
+    else {
+      this.addButtonVisible = false;
+    }
+    this.tabsIndex = event.index;
+  }
+
+  createEntry () {
+    this.tabsIndex = 0;
+  }
 }
