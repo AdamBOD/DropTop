@@ -13,6 +13,7 @@ import { UserDataComponent } from './user-data/user-data.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './shared/services/auth/auth-guard.service';
 import { AuthService } from './shared/services/auth/auth.service';
+import { DataTileComponent } from './data-tile/data-tile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthService } from './shared/services/auth/auth.service';
     UserDataComponent,
     LoginComponent,
     RegisterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DataTileComponent
   ],
   imports: [
     BrowserModule,

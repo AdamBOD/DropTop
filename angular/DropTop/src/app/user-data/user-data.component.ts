@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/services/data.service';
+import { DataTileComponent } from '../data-tile/data-tile.component';
 
 @Component({
   selector: 'app-user-data',

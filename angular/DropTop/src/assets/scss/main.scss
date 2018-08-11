@@ -60,6 +60,34 @@ html {
                 }
             }
 
+            .dataTileContainer {
+                .dataTileRow {
+                    app-data-tile {
+                        .dataTile {
+                            margin: 10px 0px 10px 0px;
+                            padding: 15px;
+                            height: auto;
+                            background-color: #80808042;
+                            border-radius: 5px;
+        
+                            &:hover {
+                                background-color: #80808073;
+                            }
+        
+                            h5 {
+                                width: 100%;
+                                height: auto;
+                                line-height: 25px;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                display: block;
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                }
+            }
+
             .toolbar {
                 height: 100%;
                 width: 15%;
@@ -142,6 +170,25 @@ html {
             }
         }
     }
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3.5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888888;
+    border-radius: 3.5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #727171;
 }
 
 @media (max-width: 450px) {
