@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './shared/services/auth/auth-guard.service';
+import { AuthService } from './shared/services/auth/auth.service';
+import { DataTileComponent } from './data-tile/data-tile.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +22,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     UserDataComponent,
     LoginComponent,
     RegisterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DataTileComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot ([
-      {path: 'home', component: UserDataComponent},
+      {path: 'home', component: UserDataComponent, canActivate: [ AuthGuard ]},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},      
       {path: "404", component: NotFoundComponent},
@@ -31,9 +37,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
       {path: "**", redirectTo: "404"},
     ], {useHash: true}),
     MatTabsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthService,
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

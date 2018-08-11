@@ -60,17 +60,88 @@ html {
                 }
             }
 
+            .dataTileContainer {
+                .dataTileRow {
+                    app-data-tile {
+                        .dataTile {
+                            margin: 10px 0px 10px 0px;
+                            padding: 15px;
+                            height: auto;
+                            background-color: #80808042;
+                            border-radius: 5px;
+                            cursor: pointer;
+        
+                            &:hover {
+                                background-color: #80808073;
+                            }
+        
+                            a {
+                                width: 100%;
+                                height: auto;
+                                line-height: 25px;
+                                font-size: 20px;
+                                font-weight: 500;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                display: block;
+                                overflow: hidden;
+
+                                &:hover {
+                                    text-decoration: none;
+                                    background-color: #80808095;
+                                    color: #000000;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             .toolbar {
                 height: 100%;
                 width: 15%;
                 background-color: gray;
                 float: left;
             }
+
             .displayArea {
                 height: 100%;
                 width: 85%;
                 background-color: lightgray;
                 float: left;
+            }
+
+            .addButton {
+                width: 70px;
+                height: 70px;
+                background-color: #48a740;
+                position: fixed;
+                bottom: 15px;
+                right: 15px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.25s ease-in-out 0s;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 9999;
+
+                &.visible {
+                    opacity: 1;
+                    visibility: visible;
+
+                    &:hover {
+                        background-color: #3d8d36;
+                    }
+                }
+
+                span {
+                    color: #ffffff;
+                    font-size: 70px;
+                    position: absolute;
+                    left: 21%;
+                    top: 37%;
+                    user-select: none;
+                }
             }
 
             .form-container {
@@ -112,6 +183,11 @@ html {
 
                         .form-text {
                             display: none;
+
+                            &.visible {
+                                color: #ee2f2f !important;
+                                display: block;
+                            }
                         }
 
                         &:last-child {
@@ -137,6 +213,25 @@ html {
             }
         }
     }
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3.5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888888;
+    border-radius: 3.5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #727171;
 }
 
 @media (max-width: 450px) {

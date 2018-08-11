@@ -1,5 +1,16 @@
-<mat-tab-group [selectedIndex]="1">
+<mat-tab-group [selectedIndex]="tabsIndex" (selectedTabChange)="tabChanged($event)">
     <mat-tab label="Create">Create Form</mat-tab>
-    <mat-tab label="View">View all data elements</mat-tab>
+
+    <mat-tab label="View">
+        <div class="container-fluid dataTileContainer">
+            <div class="row dataTileRow">
+                <app-data-tile *ngFor="let dataEntry of userData" [data]="dataEntry" class="col-lg-2 col-xs-12"></app-data-tile>
+            </div>
+        </div>        
+    </mat-tab>
     <mat-tab label="Settings">Settings form (store in localstorage?)</mat-tab>
 </mat-tab-group>
+
+<div class="addButton" [ngClass]="{'visible': addButtonVisible}" (click)="createEntry()">
+    <span>+</span>
+</div>
