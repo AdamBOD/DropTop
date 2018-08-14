@@ -1,21 +1,21 @@
 <mat-tab-group [selectedIndex]="tabsIndex" (selectedTabChange)="tabChanged($event)">
     <mat-tab label="Create">
         <div class="form-container container-fluid">
-            <div class="userForm">
+            <div class="creationForm">
                 <form>
                     <div class="row form-group">
                         <label for="name">Name</label>
                         <!-- <input type="text" class="form-control" #name="ngModel" [ngClass]="{'hasError': !name.valid && name.touched}" id="name" name="name" placeholder="Name" required minlength="4" ngModel>
                         <small class="form-text text-muted" [ngClass]="{'visible': !name.valid && name.touched}">Name must be longer than four characters</small> -->
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                        <small class="form-text text-muted" >Name must be longer than four characters</small>
+                        <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Entry Name" [ngModel]="entryName">
+                        <small class="form-text text-muted">Name must be longer than four characters</small>
                     </div>
                     <div class="row form-group">
                         <label for="data">Data</label>
                         <!-- <input type="text" class="form-control" #dataFromUser="ngModel" [ngClass]="{'hasError': !dataFromUser.valid && dataFromUser.touched}" id="dataFromUser" name="dataFromUser" placeholder="Data" required ngModel>
                         <small class="form-text text-muted" [ngClass]="{'visible': !dataFromUser.valid && dataFromUser.touched}">Data can't be empty</small> -->
-                        <input type="text" class="form-control" id="dataFromUser" name="dataFromUser" placeholder="Data">
-                        <small class="form-text text-muted" >Data can't be empty</small>
+                        <input type="text" class="form-control" id="dataFromUser" name="dataFromUser" placeholder="Entry Data" [ngModel]="dataFromUser">
+                        <small class="form-text text-muted">Data can't be empty</small>
                     </div>
                     <div class="row form-group">
                         <!-- <button type="submit" class="btn btn-primary col-md-4" [disabled]="!lcreateForm.valid">Create Entry</button> -->
