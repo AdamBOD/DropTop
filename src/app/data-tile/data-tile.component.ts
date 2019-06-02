@@ -36,13 +36,13 @@ export class DataTileComponent implements OnInit {
     return regexp.test(str);
   }
 
-  private copyTileData (clipboardArea) {
+  public copyTileData (clipboardArea) {
     clipboardArea.focus();
     clipboardArea.select();
     document.execCommand("copy");
   }
 
-  private deleteTile () {    
+  public deleteTile () {    
     this.dataService.deleteData (this.data).subscribe (
       data => {
         this.removeTial();
