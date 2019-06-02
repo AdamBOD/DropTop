@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var apiRouter = require('./routes/userData');
 var loginRouter = require('./routes/loginData');
+var UserData = require('./models/userData');
 var mongoose = require('mongoose');
 
 var app = express();
@@ -41,11 +42,17 @@ app.use((err, req, res, next) => {
 });
 
 app.get ('api/userData', (req, res) => {
-
+  UserData.find(function (err, userDatas) {
+    if (err) return next(err);
+    res.json(userDatas);
+  });
 });
 
 app.post ('api/userData', (req, res) => {
-
+  UserData.create (req.body, (req, res) => {
+    if (err) return next(err);
+    res.json(post);
+  });
 });
 
 app.put ('api/userData', (req, res) => {
