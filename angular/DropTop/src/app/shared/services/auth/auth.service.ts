@@ -10,7 +10,7 @@ export class AuthService {
         if (localStorage.getItem('username')) {
             return true;
         }
-        localStorage.setItem ('username', 'Adam');
+        //localStorage.setItem ('username', 'Adam');
         return false;
     }
 
