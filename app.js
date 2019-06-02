@@ -10,6 +10,7 @@ var UserData = require('./models/userData');
 var mongoose = require('mongoose');
 
 var app = express();
+app.listen(process.env.PORT || 8080);
 
 app.use(logger('dev'));
 app.use(express.json());
