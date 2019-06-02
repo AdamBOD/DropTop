@@ -1,5 +1,7 @@
 <mat-tab-group [selectedIndex]="tabsIndex" (selectedTabChange)="tabChanged($event)">
-    <mat-tab label="Create">Create Form</mat-tab>
+    <mat-tab label="Create">
+        <app-create-form></app-create-form>
+    </mat-tab>
 
     <mat-tab label="View">
         <div class="container-fluid dataTileContainer">
@@ -11,6 +13,6 @@
     <mat-tab label="Settings">Settings form (store in localstorage?)</mat-tab>
 </mat-tab-group>
 
-<div class="addButton" [ngClass]="{'visible': addButtonVisible}" (click)="createEntry()">
+<div class="addButton" [ngClass]="{'visible': addButtonVisible}" (click)="addNewButtonClicked()">
     <span>+</span>
 </div>

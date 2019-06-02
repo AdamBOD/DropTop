@@ -210,6 +210,19 @@ html {
                         }
                     }
                 }
+
+                input.hasError {
+                    border: 1px solid #ee2f2f;
+                    background-color: #ffdcdc;
+                }
+
+                .form-text {
+                    visibility: hidden;
+
+                    &.visibile {
+                        visibility: visible;
+                    }
+                }
             }
         }
     }

@@ -15,6 +15,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './shared/services/auth/auth-guard.service';
 import { AuthService } from './shared/services/auth/auth.service';
 import { DataTileComponent } from './data-tile/data-tile.component';
+import { CreateFormComponent } from './user-data/create-form/create-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DataTileComponent } from './data-tile/data-tile.component';
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    DataTileComponent
+    DataTileComponent,
+    CreateFormComponent
   ],
   imports: [
     BrowserModule,
