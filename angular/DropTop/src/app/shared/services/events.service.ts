@@ -4,9 +4,14 @@ import { Injectable, Output, EventEmitter } from "@angular/core";
 export class EventService {
 
   @Output() refreshUserData: EventEmitter<boolean> = new EventEmitter();
+  @Output() removeUserData: EventEmitter<UserData> = new EventEmitter();
 
-  refreshUserDataEvent() {
+  public refreshUserDataEvent() {
     this.refreshUserData.emit(true);
+  }
+
+  public removeUserDataEvent(userData: UserData) {
+    this.removeUserData.emit(userData);
   }
 
 }

@@ -16,16 +16,29 @@ export class DataService {
 
   constructor (private http: HttpClient) { }
 
-  getData (): Observable<any> {
+  public getData (): Observable<any> {
     return this.http.get(apiUrl, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
-  postData (postData) {
+  public postData (postData) {
     return this.http.post (apiUrl, postData).pipe(
             map(data => {}),
             catchError(this.handleError));
+  }
+
+  public deleteData (data) {
+    var options = {
+      headers: new HttpHeaders,
+      body: data
+    };
+
+    let deleteApiUrl: string = `${apiUrl}/${data._id}`;
+
+    return this.http.delete (deleteApiUrl, options).pipe(
+      map(data => {}),
+      catchError(this.handleError));
   }
 
   private extractData(res: Response) {

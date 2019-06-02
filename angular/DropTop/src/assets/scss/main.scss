@@ -99,6 +99,13 @@ html {
                                 }
                             }
 
+                            textarea {
+                                border: none;
+                                position: absolute;
+                                top: -1000px;
+                                left: -1000px;
+                            }
+
                             span {
                                 width: 100%;
                                 font-size: 20px;
@@ -306,11 +313,28 @@ html {
                     }
                 }
 
-                .container {
+                .dataTileContainer {
                     width: 100%;
                     height: 100%;
     
                     margin: 0px;
+
+                    .dataTileRow {
+                        app-data-tile {
+                            .dataTile {
+                                div {
+                                    i {
+                                        color: #212529;
+                                        visibility: visible;
+    
+                                        &.delete {
+                                            color: #ee2f2f;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

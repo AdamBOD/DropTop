@@ -37,8 +37,11 @@ router.put ('/userData/:id', (req, res) => {
 });
 
 router.delete ('/userData/:id', (req, res) => {
-    userDataModel.deleteById (req.params.id, req.body, (err, post) => {
-        if (err) throw err;
+    userDataModel.findByIdAndRemove (req.body._id, req.body, (err, post) => {
+        if (err) {
+            console.log (err)
+            throw err
+        };
         res.json (post);
     });
 });

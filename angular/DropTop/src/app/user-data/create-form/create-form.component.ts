@@ -49,7 +49,7 @@ export class CreateFormComponent implements OnInit {
   }
 
   createdHandler () {
-    this.buildForm ();
+    this.createEntryForm.reset();
 
     this.eventService.refreshUserDataEvent();
   }

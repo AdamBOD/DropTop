@@ -36,6 +36,18 @@ export class UserDataComponent implements OnInit {
 
       this.tabsIndex = 1;
     });
+
+    this.eventService.removeUserData.subscribe ((userData) => {
+      this.removeUserData(userData)
+    });
+  }
+
+  private removeUserData (userDataID: UserData) {
+    this.userData.forEach((element, index, object) => {
+      if (element._id == userDataID) {
+        object.splice(index, 1);
+      }
+    });
   }
 
   tabChanged (event) {

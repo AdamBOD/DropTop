@@ -1,10 +1,16 @@
 class UserData {
+    private _id: string;
     private name: string;
     private data: string;
 
-    public constructor (name: string, data: string) {
+    public constructor (_id: string, name: string, data: string) {
+        this._id = _id;
         this.name = name;
         this.data = data;
+    }
+
+    public get_id (): string {
+        return this._id;
     }
 
     public getName (): string {
