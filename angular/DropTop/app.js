@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist/DropTop')));
 app.use('/', express.static(path.join(__dirname, 'dist/DropTop')));
-// app.use('/login', loginRouter);
+app.use('/login', loginRouter);
 app.use('/api', apiRouter);
 
 mongoose.connect('mongodb://localhost/DropTop', { promiseLibrary: require('bluebird') })
