@@ -17,6 +17,8 @@ import { AuthService } from './shared/services/auth/auth.service';
 import { DataTileComponent } from './data-tile/data-tile.component';
 import { CreateFormComponent } from './user-data/create-form/create-form.component';
 
+import { EventService } from './shared/services/events.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,8 @@ import { CreateFormComponent } from './user-data/create-form/create-form.compone
   providers: [
     AuthGuard,
     AuthService,
-    DatePipe
+    DatePipe,
+    EventService
   ],
   bootstrap: [AppComponent]
 })

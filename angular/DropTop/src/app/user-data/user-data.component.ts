@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../shared/services/data.service';
 import { DataTileComponent } from '../data-tile/data-tile.component';
+import { EventService } from '../shared/services/events.service';
 
 @Component({
   selector: 'app-user-data',
@@ -14,8 +15,7 @@ export class UserDataComponent implements OnInit {
   createForm: FormGroup;
 
   constructor(private dataService: DataService,
-              private formBuilder: FormBuilder) {
-                //this.buildForm();
+              private eventService: EventService) {
   }
 
   ngOnInit() {
@@ -26,16 +26,15 @@ export class UserDataComponent implements OnInit {
         console.log (err);
     });
 
-    // this.createForm.setValue ({
-    //   name: '',
-    //   dataFromUser: ''
-    // });
-  }
+    this.eventService.refreshUserData.subscribe (() => {
+      this.dataService.getData()
+        .subscribe (res => {
+          this.userData = res;
+        }, err => {
+          console.log (err);
+      });
 
-  buildForm () {
-    this.createForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(4)]],
-      dataFromUser: ['', [Validators.required]]
+      this.tabsIndex = 1;
     });
   }
 
@@ -51,9 +50,5 @@ export class UserDataComponent implements OnInit {
 
   addNewButtonClicked () {
     this.tabsIndex = 0;
-  }
-
-  createEntry (createEntryData) {
-    console.log (createEntryData);
   }
 }

@@ -73,6 +73,12 @@ html {
         
                             &:hover {
                                 background-color: #80808073;
+
+                                div {
+                                    i {
+                                        visibility: visible;
+                                    }
+                                }
                             }
         
                             a {
@@ -90,6 +96,36 @@ html {
                                     text-decoration: none;
                                     background-color: #80808095;
                                     color: #000000;
+                                }
+                            }
+
+                            span {
+                                width: 100%;
+                                font-size: 20px;
+                                height: auto;
+                                line-height: 25px;
+                                margin-bottom: 7px;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                display: block;
+                                overflow: hidden;
+                            }
+
+                            div {
+                                i {
+                                    height: 24px;
+                                    font-size: 24px;
+                                    margin-top: 20px;
+                                    color: #727171;
+                                    visibility: hidden;
+
+                                    &:hover {
+                                        color: #212529;
+                                    }
+
+                                    &.delete:hover {
+                                        color: #ee2f2f;
+                                    }
                                 }
                             }
                         }

@@ -1,5 +1,12 @@
 <div class="dataTile" (click)="openTileData()">
   <h2>{{ data.name }}</h2>
-  <a class="h5" href="{{data.data}}" target="_blank">{{ data.data }}</a>
-  <h6>{{ data.dateCreated | date: 'dd/MM/yyyy hh:mm' }}</h6>
+  <a class="h5" href="{{dataURL}}" target="_blank" *ngIf="isURL">{{ data.data }}</a>
+  <span *ngIf="!isURL">{{ data.data }}</span>
+  
+  <div class="row">
+    <h6 class="col-6">{{ data.dateCreated | date: 'dd/MM/yyyy hh:mm' }}</h6>
+    <i class="col-2 far fa-edit"></i>
+    <i class="col-2 far fa-clipboard"></i>
+    <i class="col-2 far fa-trash-alt delete"></i>
+  </div>
 </div>

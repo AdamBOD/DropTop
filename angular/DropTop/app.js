@@ -41,24 +41,6 @@ app.use((err, req, res, next) => {
   res.send(err.status);
 });
 
-app.get ('api/userData', (req, res) => {
-  UserData.find(function (err, userDatas) {
-    if (err) return next(err);
-    res.json(userDatas);
-  });
-});
-
-app.post ('api/userData', (req, res) => {
-  UserData.create (req.body, (req, res) => {
-    if (err) return next(err);
-    res.json(post);
-  });
-});
-
-app.put ('api/userData', (req, res) => {
-
-});
-
 app.get ('api/login', (req, res) => {
   res.send ("Login Portal");
 });

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "/api";
+const apiUrl = "/api/userData";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,12 @@ export class DataService {
     return this.http.get(apiUrl, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
+  }
+
+  postData (postData) {
+    return this.http.post (apiUrl, postData).pipe(
+            map(data => {}),
+            catchError(this.handleError));
   }
 
   private extractData(res: Response) {
