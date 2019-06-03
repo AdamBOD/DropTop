@@ -1,4 +1,5 @@
 var createError = require('http-errors');
+var http = require('http');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,6 +11,21 @@ var UserData = require('./models/userData');
 var mongoose = require('mongoose');
 
 var app = express();
+
+var port = 8080;
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
 
 app.use(logger('dev'));
 app.use(express.json());
