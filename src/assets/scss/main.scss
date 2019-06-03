@@ -338,7 +338,11 @@ html {
                                             color: #ee2f2f;
                                         }
                                     }
-                                }
+                                }                                
+                            }
+
+                            &:last-child {
+                                margin-bottom: 75px;
                             }
                         }
                     }
