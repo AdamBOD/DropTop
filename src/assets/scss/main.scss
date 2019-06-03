@@ -91,6 +91,13 @@ html {
                                 max-height: 0px;
                                 opacity: 0;
                             }
+
+                            .dataName {
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                padding-bottom: 2px;
+                            }
         
                             a {
                                 width: 100%;
