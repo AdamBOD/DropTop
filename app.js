@@ -35,7 +35,7 @@ app.use('/', express.static(path.join(__dirname, 'dist/DropTop')));
 app.use('/login', loginRouter);
 app.use('/api', apiRouter);
 
-mongoose.connect('mongodb://localhost:27017/droptop', { promiseLibrary: require('bluebird') })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/droptop', { promiseLibrary: require('bluebird') })
   .then((data) =>  {
     console.log('connection successful')
   })
