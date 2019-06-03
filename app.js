@@ -12,7 +12,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-var port = 8080;
+var port = process.env.PORT || 8080;
 app.set('port', port);
 
 /**
