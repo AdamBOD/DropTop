@@ -1,6 +1,6 @@
 <div class="form-container container-fluid">
   <div class="creationForm">
-    <form #createEntryForm="ngForm"  (ngSubmit)="create(createEntryForm.value)">
+    <form #createEntryForm="ngForm"  (ngSubmit)="create(createEntryForm)">
       <div class="row form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" #name="ngModel" [ngClass]="{'hasError': !name.valid && name.touched}" id="name" name="name"

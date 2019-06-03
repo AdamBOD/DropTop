@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
 import { EventService } from 'src/app/shared/services/events.service';
 
@@ -26,10 +26,10 @@ export class CreateFormComponent implements OnInit {
     });
   }
 
-  create (createEntryData: any) {
+  create (createEntryData: NgForm) {
     console.log (createEntryData)
-    let name = createEntryData.name;
-    let data = createEntryData.dataFromUser;
+    let name = createEntryData.value.name;
+    let data = createEntryData.value.dataFromUser;
 
     var postData = {};
     postData['name'] = name;
@@ -39,6 +39,7 @@ export class CreateFormComponent implements OnInit {
     
     var postResponse = this.dataService.postData (postData).subscribe (
       data => {
+        createEntryData.reset();
         this.createdHandler();
       },
       error => {
@@ -49,8 +50,6 @@ export class CreateFormComponent implements OnInit {
   }
 
   createdHandler () {
-    this.createEntryForm.reset();
-
     this.eventService.refreshUserDataEvent();
   }
 

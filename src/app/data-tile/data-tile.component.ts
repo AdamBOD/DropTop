@@ -37,7 +37,6 @@ export class DataTileComponent implements OnInit {
   }
 
   public copyTileData (clipboardArea) {
-    clipboardArea.focus();
     clipboardArea.select();
     document.execCommand("copy");
   }
