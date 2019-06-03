@@ -18,6 +18,8 @@ import { DataTileComponent } from './data-tile/data-tile.component';
 import { CreateFormComponent } from './user-data/create-form/create-form.component';
 
 import { EventService } from './shared/services/events.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,7 @@ import { EventService } from './shared/services/events.service';
     MatTabsModule,
     BrowserAnimationsModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     AuthGuard,

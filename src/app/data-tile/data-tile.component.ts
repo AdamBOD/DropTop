@@ -13,6 +13,7 @@ export class DataTileComponent implements OnInit {
   dataURL;
   disabled = true;
   tileDeleted = false;
+  clipboardCopied = false;
 
   constructor(private dataService: DataService,
               private eventService: EventService) { }
@@ -43,9 +44,13 @@ export class DataTileComponent implements OnInit {
     setTimeout (() => {
       clipboardArea.select();
       document.execCommand("copy");
+      this.clipboardCopied = true;
       this.disabled = true;
     }, 100);
     
+    setTimeout (() => {
+      this.clipboardCopied = false;
+    }, 5000);
   }
 
   public deleteTile () {

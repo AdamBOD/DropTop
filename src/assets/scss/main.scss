@@ -144,6 +144,21 @@ html {
                                     &.delete:hover {
                                         color: #ee2f2f;
                                     }
+
+                                    &.fa-clipboard {
+                                        &.hidden {
+                                            display: none;
+                                        }
+                                    }
+
+                                    &.fa-check {
+                                        color: #3d8d36;
+                                        display: none;
+
+                                        &.visible {
+                                            display: block;
+                                        }
+                                    }
                                 }
                             }
                         }

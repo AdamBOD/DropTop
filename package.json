@@ -25,6 +25,7 @@
     "@angular/material": "^6.4.0",
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
+    "@angular/pwa": "^0.8.7",
     "@angular/router": "^6.0.3",
     "@fortawesome/fontawesome-free": "^5.8.2",
     "body-parser": "^1.18.3",
@@ -36,7 +37,8 @@
     "morgan": "^1.9.1",
     "rxjs": "^6.0.0",
     "serve-favicon": "^2.5.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@angular/service-worker": "^6.0.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.4",
