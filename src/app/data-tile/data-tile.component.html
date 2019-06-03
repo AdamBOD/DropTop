@@ -1,4 +1,4 @@
-<div class="dataTile">
+<div class="dataTile" [ngClass]="{'deleted': tileDeleted}">
   <h2>{{ data.name }}</h2>
   <a class="h5" href="{{dataURL}}" target="_blank" *ngIf="isURL">{{ data.data }}</a>
   <span *ngIf="!isURL">{{ data.data }}</span>

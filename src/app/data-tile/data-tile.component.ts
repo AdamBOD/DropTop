@@ -12,6 +12,7 @@ export class DataTileComponent implements OnInit {
   isURL = false;
   dataURL;
   disabled = true;
+  tileDeleted = false;
 
   constructor(private dataService: DataService,
               private eventService: EventService) { }
@@ -47,15 +48,20 @@ export class DataTileComponent implements OnInit {
     
   }
 
-  public deleteTile () {    
-    this.dataService.deleteData (this.data).subscribe (
-      data => {
-        this.removeTial();
-      },
-      error => {
-        console.log (error);
-      }
-    );
+  public deleteTile () {
+    this.tileDeleted = true;
+    window.setTimeout (() => {
+      this.dataService.deleteData (this.data).subscribe (
+        data => {
+          this.tileDeleted = true;
+          this.removeTial();
+        },
+        error => {
+          console.log (error);
+        }
+      );
+    }, 500);
+    
   }
 
   private removeTial () {
