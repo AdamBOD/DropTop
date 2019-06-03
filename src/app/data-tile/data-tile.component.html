@@ -2,7 +2,7 @@
   <h2>{{ data.name }}</h2>
   <a class="h5" href="{{dataURL}}" target="_blank" *ngIf="isURL">{{ data.data }}</a>
   <span *ngIf="!isURL">{{ data.data }}</span>
-  <textarea class="clipboardArea" #clipboardArea>{{ data.data }}</textarea>
+  <textarea class="clipboardArea" #clipboardArea [attr.disabled]="disabled ? '' : null">{{ data.data }}</textarea>
   
   <div class="row">
     <h6 class="col-6">{{ data.dateCreated | date: 'dd/MM/yyyy hh:mm' }}</h6>

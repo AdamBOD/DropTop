@@ -11,6 +11,7 @@ export class DataTileComponent implements OnInit {
   isEditing = false;
   isURL = false;
   dataURL;
+  disabled = true;
 
   constructor(private dataService: DataService,
               private eventService: EventService) { }
@@ -37,8 +38,13 @@ export class DataTileComponent implements OnInit {
   }
 
   public copyTileData (clipboardArea) {
-    clipboardArea.select();
-    document.execCommand("copy");
+    this.disabled = false;
+    setTimeout (() => {
+      clipboardArea.select();
+      document.execCommand("copy");
+      this.disabled = true;
+    }, 100);
+    
   }
 
   public deleteTile () {    
