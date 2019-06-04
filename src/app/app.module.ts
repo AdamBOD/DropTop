@@ -20,6 +20,7 @@ import { CreateFormComponent } from './user-data/create-form/create-form.compone
 import { EventService } from './shared/services/events.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { environment } from '../environments/environment';
     RegisterComponent,
     NotFoundComponent,
     DataTileComponent,
-    CreateFormComponent
+    CreateFormComponent,
+    EditModalComponent
   ],
   imports: [
     BrowserModule,
