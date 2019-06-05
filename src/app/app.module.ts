@@ -55,6 +55,9 @@ import { EditModalComponent } from './edit-modal/edit-modal.component';
     DatePipe,
     EventService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    EditModalComponent
+  ]
 })
 export class AppModule { }

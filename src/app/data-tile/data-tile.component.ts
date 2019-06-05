@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { DataService } from '../shared/services/data.service';
 import { EventService } from '../shared/services/events.service';
 
@@ -16,7 +16,8 @@ export class DataTileComponent implements OnInit {
   clipboardCopied = false;
 
   constructor(private dataService: DataService,
-              private eventService: EventService) { }
+              private eventService: EventService,
+              private viewRef: ViewContainerRef) { }
 
   ngOnInit() {
     this.isURL = this.isUrl(this.data.data);
@@ -37,6 +38,15 @@ export class DataTileComponent implements OnInit {
   private hasProtocol(str): boolean {
     var regexp = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)/gm;
     return regexp.test(str);
+  }
+
+  public editTile () {
+    this.dataService.getDataById(this.data._id)
+        .subscribe (res => {
+          this.eventService.createEditModalEvent (res);
+        }, err => {
+          console.log (err);
+      });
   }
 
   public copyTileData (clipboardArea) {

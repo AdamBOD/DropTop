@@ -22,10 +22,31 @@ export class DataService {
       catchError(this.handleError));
   }
 
+  public getDataById (dataId): Observable<any> {
+    let getApiUrl: string = `${apiUrl}/${dataId}`;
+
+    return this.http.get(getApiUrl, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
   public postData (postData) {
     return this.http.post (apiUrl, postData).pipe(
             map(data => {}),
             catchError(this.handleError));
+  }
+
+  public putData (putData) {
+    var options = {
+      headers: new HttpHeaders,
+      body: putData
+    };
+
+    let updateApiUrl: string = `${apiUrl}/${putData._id}`;
+
+    return this.http.put (updateApiUrl, options).pipe(
+      map(data => {}),
+      catchError(this.handleError));
   }
 
   public deleteData (data) {

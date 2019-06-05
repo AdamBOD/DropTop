@@ -1,11 +1,11 @@
 var express = require ('express');
 var router = express.Router();
+var ObjectID = require('mongodb').ObjectID;   
 
 var userDataModel = require ('../models/userData.js');
 
 /* GET home page. */
 router.get ('/userData/', function(req, res) {
-    console.log ("GET DATA")
     userDataModel.find ((err, data) => {
         if (err) {
             console.log (err);
@@ -16,9 +16,12 @@ router.get ('/userData/', function(req, res) {
 });
 
 router.get ('/userData/:id', (req, res) => {
-    userDataModel.findById (req.params.id, (err, post) => {
-        if (err) throw err;
-        res.json (post);
+    userDataModel.findById (req.params.id, (err, data) => {
+        if (err) {
+            console.log (err);
+            throw err;
+        }
+        res.json (data);
     });
 });
 
@@ -30,7 +33,9 @@ router.post ('/userData/', (req, res) => {
 });
 
 router.put ('/userData/:id', (req, res) => {
-    userDataModel.updateById (req.params.id, req.body, (err, post) => {
+    let updateObj = {$set:{ name: req.body.body.name,
+                            data: req.body.body.data }}
+    userDataModel.findByIdAndUpdate (req.params.id, updateObj, {new: true}, (err, post) => {
         if (err) throw err;
         res.json (post);
     });

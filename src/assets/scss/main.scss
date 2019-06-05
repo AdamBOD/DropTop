@@ -300,13 +300,18 @@ html {
                     }
                 }
             }
+        }
 
+        app-edit-modal {
             .modalContainer {
-                opacity: 0;
-                transition: 0.3s;
-
                 &.open {
-                    opacity: 1;
+                    .modalOverlay {
+                        opacity: 1;
+                    }
+                    
+                    .editModal {
+                        opacity: 1;
+                    }
                 }
                 .modalOverlay {
                     position: absolute;
@@ -319,12 +324,50 @@ html {
                     align-items: center;
                     background-color: #29262673;
                     z-index: 1;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                }
 
-                    .editModal {
-                        width: 30%;
-                        height: 35%;
-                        background-color: #f9f9f9;
-                        border-radius: 5px;
+                .editModal {
+                    width: 30%;
+                    height: 35%;                    
+                    position: absolute;
+                    left: 35%;
+                    top: 32.5%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #f9f9f9;
+                    border-radius: 5px;
+                    z-index: 9999;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+
+                    .updateForm {
+                        width: 80%;
+                        margin: auto;
+
+                        .row {
+                            margin-bottom: 15px;
+                            
+                            &:last-child {
+                                margin-bottom: 0px;
+                            }
+
+                            .form-text {
+                                display: none;
+    
+                                &.visible {
+                                    color: #ee2f2f !important;
+                                    display: block;
+                                }
+                            }
+
+                            input.hasError {
+                                border: 1px solid #ee2f2f;
+                                background-color: #ffdcdc;
+                            }
+                        }
                     }
                 }
             }
@@ -417,6 +460,15 @@ html {
                         font-size: 65px;
                         left: 13.5%;
                         top: 32%;
+                    }
+                }
+            }
+            app-edit-modal {
+                .modalContainer {
+                    .editModal {
+                        width: 95%;                  
+                        position: absolute;
+                        left: 2.5%;
                     }
                 }
             }
