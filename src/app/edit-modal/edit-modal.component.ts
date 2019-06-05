@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Renderer2, Inject } from '@angular/core';
 import { EventService } from '../shared/services/events.service';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../shared/services/data.service';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-modal',
@@ -18,11 +19,14 @@ export class EditModalComponent implements OnInit {
 
   constructor(private dataService: DataService, 
               private eventService: EventService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private renderer: Renderer2,
+              @Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
     this.renderModal();
     this.buildForm();
+    this.renderer.addClass (this.document.body, 'overlayOpen');
   }
 
   buildForm () {
@@ -63,8 +67,9 @@ export class EditModalComponent implements OnInit {
   closeModal() {
     this.modalOpened = false;
     setTimeout (() => {
+      this.renderer.removeClass (this.document.body, 'overlayOpen');
       this.eventService.closeEditModalEvent();
-    }, 300);    
+    }, 300);
   }
 
 }

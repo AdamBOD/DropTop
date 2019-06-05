@@ -6,6 +6,10 @@ html {
         margin: 0px;
         background-color: #f9f9f9;
 
+        &.overlayOpen {
+            overflow: hidden;
+        }
+
         &.iframeFormat {
             width: 90%;
             margin-left: 12px;
@@ -349,7 +353,7 @@ html {
 
                         .row {
                             margin-bottom: 15px;
-                            
+
                             &:last-child {
                                 margin-bottom: 0px;
                             }
