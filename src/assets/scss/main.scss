@@ -318,7 +318,7 @@ html {
                     }
                 }
                 .modalOverlay {
-                    position: absolute;
+                    position: fixed;
                     top: 0;
                     left: 0;
                     bottom: 0;
@@ -335,7 +335,7 @@ html {
                 .editModal {
                     width: 30%;
                     height: 35%;                    
-                    position: absolute;
+                    position: fixed;
                     left: 35%;
                     top: 32.5%;
                     display: flex;
