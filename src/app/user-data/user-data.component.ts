@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { DataService } from '../shared/services/data.service';
-import { DataTileComponent } from '../data-tile/data-tile.component';
 import { EventService } from '../shared/services/events.service';
+import { browser } from 'protractor';
 
 @Component({
   selector: 'app-user-data',
@@ -35,6 +35,12 @@ export class UserDataComponent implements OnInit {
       });
 
       this.tabsIndex = 1;
+      window.setTimeout(() => {
+        window.scrollTo({
+          top: (this.userData.length * 200) + 65,
+          behavior: 'smooth'
+        });
+      }, 500);
     });
 
     this.eventService.removeUserData.subscribe ((userData) => {
