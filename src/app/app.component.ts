@@ -2,6 +2,7 @@ import { Component, ComponentFactoryResolver, ViewContainerRef, Injector, Applic
 import { environment } from 'src/environments/environment';
 import { EventService } from './shared/services/events.service';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent {
   public static isMobile: boolean = false;
 
   private editModalComponentRef: ComponentRef<EditModalComponent>
+  private deleteModalComponentRef: ComponentRef<DeleteModalComponent>
 
   constructor(private eventService: EventService,
               private componentFactoryResolver: ComponentFactoryResolver,
@@ -39,6 +41,22 @@ export class AppComponent {
     this.eventService.closeEditModal.subscribe (() => {
       this.appRef.detachView(this.editModalComponentRef.hostView);
       this.editModalComponentRef.destroy();
+    });
+
+    this.eventService.createDeleteModal.subscribe ((data) => {
+      let componentFactory = this.componentFactoryResolver.resolveComponentFactory(DeleteModalComponent);
+      let componentRef = componentFactory.create(this.injector);
+      componentRef.instance.data = data;
+      this.appRef.attachView(componentRef.hostView);
+
+      const domElement = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+      document.body.appendChild(domElement);
+      this.deleteModalComponentRef = componentRef;
+    });
+
+    this.eventService.closeDeleteModal.subscribe (() => {
+      this.appRef.detachView(this.deleteModalComponentRef.hostView);
+      this.deleteModalComponentRef.destroy();
     });
   }
 }

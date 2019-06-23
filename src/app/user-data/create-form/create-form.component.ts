@@ -27,15 +27,12 @@ export class CreateFormComponent implements OnInit {
   }
 
   create (createEntryData: NgForm) {
-    console.log (createEntryData)
     let name = createEntryData.value.name;
     let data = createEntryData.value.dataFromUser;
 
     var postData = {};
     postData['name'] = name;
     postData['data'] = data;
-
-    console.log (postData)
     
     var postResponse = this.dataService.postData (postData).subscribe (
       data => {
@@ -46,7 +43,6 @@ export class CreateFormComponent implements OnInit {
         console.log (error);
       }
     );
-    console.log (postResponse);
   }
 
   createdHandler () {

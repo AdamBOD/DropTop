@@ -21,6 +21,7 @@ import { EventService } from './shared/services/events.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditModalComponent } from './edit-modal/edit-modal.component';
     NotFoundComponent,
     DataTileComponent,
     CreateFormComponent,
-    EditModalComponent
+    EditModalComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { EditModalComponent } from './edit-modal/edit-modal.component';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    EditModalComponent
+    EditModalComponent,
+    DeleteModalComponent
   ]
 })
 export class AppModule { }

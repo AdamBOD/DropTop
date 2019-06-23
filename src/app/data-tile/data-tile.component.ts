@@ -64,18 +64,15 @@ export class DataTileComponent implements OnInit {
   }
 
   public deleteTile () {
-    this.tileDeleted = true;
-    window.setTimeout (() => {
-      this.dataService.deleteData (this.data).subscribe (
-        data => {
-          this.tileDeleted = true;
-          this.removeTial();
-        },
-        error => {
-          console.log (error);
-        }
-      );
-    }, 500);
+    this.eventService.createDeleteModalEvent (this.data);
+
+    this.eventService.deleteSuccessful.subscribe (() => {      
+      this.tileDeleted = true;
+
+      window.setTimeout (() => {
+        this.removeTial();
+      }, 400);
+    });
     
   }
 

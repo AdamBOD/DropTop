@@ -5,33 +5,22 @@ import { DataService } from '../shared/services/data.service';
 import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-edit-modal',
-  templateUrl: './edit-modal.component.html'
+  selector: 'app-delete-modal',
+  templateUrl: './delete-modal.component.html'
 })
-export class EditModalComponent implements OnInit {
+export class DeleteModalComponent implements OnInit {
   @Input() data: any;
 
   modalOpened: boolean = false;
-  dataName: string;
-  userData: string;
-
-  updateEntryForm: FormGroup;
 
   constructor(private dataService: DataService, 
               private eventService: EventService,
-              private formBuilder: FormBuilder,
               private renderer: Renderer2,
               @Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
     this.renderModal();
-    this.buildForm();
     this.renderer.addClass (this.document.body, 'overlayOpen');
-  }
-
-  buildForm () {
-    this.dataName = this.data.name;
-    this.userData = this.data.data;
   }
 
   renderModal () {
@@ -40,31 +29,25 @@ export class EditModalComponent implements OnInit {
     }, 50);
   }
 
-  update (updateEntryData: NgForm) {
-    let name = updateEntryData.value.name;
-    let data = updateEntryData.value.dataFromUser;
-
-    var putData = {};
-    putData['name'] = name;
-    putData['data'] = data;
-    putData['_id'] = this.data._id
-    
-    var putResponse = this.dataService.putData (putData).subscribe (
-      data => {
-        this.eventService.refreshUserDataEvent();
-        this.closeModal()
-      },
-      error => {
-        console.log (error);
-      }
-    );
+  deleteData () {
+    window.setTimeout (() => {
+      this.dataService.deleteData (this.data).subscribe (
+        () => {
+          this.closeModal();
+          this.eventService.deleteSuccessfulEvent();
+        },
+        error => {
+          console.log (error);
+        }
+      );
+    }, 500);
   }
 
   closeModal() {
     this.modalOpened = false;
     setTimeout (() => {
       this.renderer.removeClass (this.document.body, 'overlayOpen');
-      this.eventService.closeEditModalEvent();
+      this.eventService.closeDeleteModalEvent();
     }, 300);
   }
 

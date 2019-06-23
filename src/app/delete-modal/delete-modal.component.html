@@ -1,0 +1,14 @@
+<div class="modalContainer" [ngClass]="{'open': modalOpened}">
+  <div class="modalOverlay" (click)="closeModal()"></div>
+  <div class="deleteModal">
+    <div class="deleteContainer">
+      <div class="row">
+        <span>Are you sure you want to delete this entry: {{ data.name }}?</span>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary col-md-5 col-5 deleteButton" (click)="deleteData()">Delete</button>
+        <button class="btn btn-primary col-md-5 col-5 offset-2" (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

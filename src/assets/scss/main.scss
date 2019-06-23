@@ -306,14 +306,14 @@ html {
             }
         }
 
-        app-edit-modal {
+        app-edit-modal, app-delete-modal {
             .modalContainer {
                 &.open {
                     .modalOverlay {
                         opacity: 1;
                     }
                     
-                    .editModal {
+                    .editModal, .deleteModal {
                         opacity: 1;
                     }
                 }
@@ -332,7 +332,7 @@ html {
                     transition: opacity 0.3s ease-in-out;
                 }
 
-                .editModal {
+                .editModal, .deleteModal {
                     width: 30%;
                     height: 35%;                    
                     position: fixed;
@@ -347,7 +347,7 @@ html {
                     opacity: 0;
                     transition: opacity 0.3s ease-in-out;
 
-                    .updateForm {
+                    .updateForm, .deleteContainer {
                         width: 80%;
                         margin: auto;
 
@@ -370,6 +370,27 @@ html {
                             input.hasError {
                                 border: 1px solid #ee2f2f;
                                 background-color: #ffdcdc;
+                            }
+                        }
+                    }
+                }
+
+                .deleteModal {
+                    height: 20%;
+
+                    span {
+                        font-size: 22px;
+                        padding-bottom: 15px;
+                    }
+                    
+                    .row {
+                        .deleteButton {
+                            background-color: #ee2f2f;
+                            border-color: #ee2f2f;
+
+                            &:hover {
+                                background-color: #d60101;
+                            border-color: #bb0202;
                             }
                         }
                     }
@@ -467,11 +488,18 @@ html {
                     }
                 }
             }
-            app-edit-modal {
+            app-edit-modal, app-delete-modal {
                 .modalContainer {
-                    .editModal {
+                    .editModal, .deleteModal {
                         width: 95%;
                         left: 2.5%;
+                    }
+
+                    .deleteModal {
+                        span {
+                            font-size: 14px;
+                            padding-bottom: 0px;
+                        }
                     }
                 }
             }
