@@ -6,9 +6,9 @@
   
   <div class="row">
     <h6 class="col-6">{{ data.dateCreated | date: 'dd/MM/yyyy hh:mm' }}</h6>
-    <i class="col-2 far fa-edit" (click)="editTile()"></i>
     <i class="col-2 far fa-clipboard" [ngClass]="{'hidden': clipboardCopied}" (click)="copyTileData(clipboardArea)"></i>
     <i class="col-2 fas fa-check" [ngClass]="{'visible': clipboardCopied}"></i>
+    <i class="col-2 far fa-edit" (click)="editTile()"></i>
     <i class="col-2 far fa-trash-alt delete" (click)="deleteTile()"></i>
   </div>
 </div>
