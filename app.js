@@ -26,6 +26,7 @@ var server = http.createServer(app);
  */
 
 server.listen(port);
+console.log (`Listening on port ${port}`);
 
 app.use(logger('dev'));
 app.use(express.json());

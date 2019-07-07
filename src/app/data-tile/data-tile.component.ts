@@ -51,12 +51,15 @@ export class DataTileComponent implements OnInit {
 
   public copyTileData (clipboardArea) {
     this.disabled = false;
-    setTimeout (() => {
-      clipboardArea.select();
-      document.execCommand("copy");
+      
+    document.addEventListener('copy', (e: ClipboardEvent) => {
+      e.clipboardData.setData('text/plain', (clipboardArea.value));
+      e.preventDefault();
+      document.removeEventListener('copy', null);
       this.clipboardCopied = true;
       this.disabled = true;
-    }, 100);
+    });
+    document.execCommand('copy');
     
     setTimeout (() => {
       this.clipboardCopied = false;

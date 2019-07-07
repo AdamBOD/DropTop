@@ -3,6 +3,7 @@
   "short_name": "DropTop",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
+  "permissions": ["storage", "tabs", "clipboardWrite"],
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
