@@ -1,6 +1,6 @@
 {
     "name": "DropTop",
-    "version": "1.0",
+    "version": "1.1",
     "manifest_version": 2,
     "description": "Share small snippets of data between devices",
     "permissions": ["storage", "tabs", "clipboardWrite"],
