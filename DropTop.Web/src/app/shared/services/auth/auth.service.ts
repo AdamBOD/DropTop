@@ -7,7 +7,7 @@ export class AuthService {
     constructor() { }
 
     isLoggedIn(): boolean {
-        if (localStorage.getItem('username')) {
+        if (localStorage.getItem('userId')) {
             return true;
         }
         //localStorage.setItem ('username', 'Adam');

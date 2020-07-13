@@ -1,4 +1,4 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# DropTop.Web
 
 # compiled output
 /DropTop.Web/dist
@@ -39,3 +39,13 @@
 /DropTop.Web/Thumbs.db
 /DropTop.Web/extension/extension.zip
 /DropTop.Web/extension/Firefox/Firefox.zip
+
+# DropTop.API
+
+# compiled output
+/DropTop.API/DropTop.API/bin
+/DropTop.API/DropTop.API/obj
+/DropTop.API/DropTop.API/debug
+
+# IDE - VS
+/DropTop.API/DropTop.API/.vs
