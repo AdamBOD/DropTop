@@ -42,11 +42,16 @@ namespace DropTop.API.Controllers
         }
 
         [HttpGet]
-        public async Task<User> Get()
+        public async Task<User> Get(string userId)
         {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                return null;
+            }
+
             var context = new DropTopContext();
 
-            var user = await context.User.FirstOrDefaultAsync();
+            var user = await context.User.Where(u => u.Id == Guid.Parse(userId)).FirstOrDefaultAsync();
 
             return user;
         }
