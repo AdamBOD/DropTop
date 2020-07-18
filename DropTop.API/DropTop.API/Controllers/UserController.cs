@@ -62,6 +62,12 @@ namespace DropTop.API.Controllers
         {
             var context = new DropTopContext();
 
+            var existingEmail = await context.User.Where(u => u.Email == user.Email).AnyAsync();
+            if (existingEmail)
+            {
+                return BadRequest("A User with this email address already exists");
+            }
+
             MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
             Byte[] hashedPassword;
             UTF8Encoding encoder = new UTF8Encoding();

@@ -40,13 +40,26 @@ export class LoginComponent implements OnInit {
         console.log (email)
         console.log (password)
 
-        this.authService.login(email, password.toString());
+        this.authService.login(email, password.toString()).subscribe(res => {
+                if (res != null) {
+                    localStorage.setItem('email', res["email"]);
+                    localStorage.setItem('firstName', res["firstName"]);
+                    localStorage.setItem('lastName', res["lastName"]);
+                    localStorage.setItem('userId', res["id"]);
+                    localStorage.setItem('token', res["token"])
+                    
+                    console.log ("Logged in")
 
-        if (this.authService.redirectUrl) {
-            this.router.navigateByUrl(this.authService.redirectUrl);
-        } else {
-            this.router.navigate(['/home']);
-        }
+                    
+                    if (this.authService.redirectUrl) {
+                        this.router.navigateByUrl(this.authService.redirectUrl);
+                    } else {
+                        this.router.navigate(['/home']);
+                    }
+                }
+            }, error => {
+                console.error(error);
+            });
     }
 
 }

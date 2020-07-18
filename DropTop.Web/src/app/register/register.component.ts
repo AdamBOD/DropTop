@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
       }
       else {
         if (passwordInput.viewModel === this.password) {
-          console.log ("Matched Passwords")
           this.registerForm.controls['confirmPassword'].setErrors(null);
           this.passwordsMatch = true;
           return true;
@@ -65,13 +64,17 @@ export class RegisterComponent implements OnInit {
         const md5 = new Md5();
         registerData.password = md5.appendStr(registerData.password).end();
 
-        this.authService.register(registerData);
-
-        if (this.authService.redirectUrl) {
-            this.router.navigateByUrl(this.authService.redirectUrl);
-        } else {
-            this.router.navigate(['/home']);
-        }
+        this.authService.register(registerData).subscribe (res => {
+            console.log ("Registered")
+            if (this.authService.redirectUrl) {
+                this.router.navigateByUrl(this.authService.redirectUrl);
+            } else {
+                this.router.navigate(['/home']);
+            }
+        });// }, error => {
+        //     console.log ("We have an error")
+        //     console.error(error);
+        // });
     }
 
 }
