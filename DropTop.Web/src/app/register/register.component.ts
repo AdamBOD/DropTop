@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl,Validators, AbstractControl } from '@angular/forms';
 import { AuthService } from '../shared/services/auth/auth.service';
 import { Router } from '@angular/router';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,9 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit () {
         this.registerForm.setValue({
-            userName: '',
+            firstName: '',
+            lastName: '',
+            email: '',
             password: '',
             confirmPassword: ''
         });
@@ -30,18 +33,21 @@ export class RegisterComponent implements OnInit {
 
     buildForm () {
         this.registerForm = this.formBuilder.group({
-            userName: ['', [Validators.required, Validators.minLength(4)]],
+            firstName: ['', [Validators.required, Validators.minLength(1)]],
+            lastName: ['', [Validators.required, Validators.minLength(1)]],
+            email: ['', [Validators.required, Validators.minLength(4)]],
             password: ['', [Validators.required, Validators.minLength(8)]],
             confirmPassword: ['', [Validators.required, Validators.minLength(8)]]
         });
     }
 
-    checkPasswordsMatch (passwordInput: any) {
+    checkPasswordsMatch (event: any, passwordInput: any) {
       if (this.password === undefined) {
         this.password = passwordInput.viewModel;
       }
       else {
         if (passwordInput.viewModel === this.password) {
+          console.log ("Matched Passwords")
           this.registerForm.controls['confirmPassword'].setErrors(null);
           this.passwordsMatch = true;
           return true;
@@ -51,10 +57,15 @@ export class RegisterComponent implements OnInit {
       }
     }
 
+    setPassword(event): void {
+        this.password = event.srcElement.value;
+    }
+
     register (registerData: any) {
-        let userName = this.registerForm.value.userName;
-        let password = this.registerForm.value.password;
-        this.authService.register(userName, password);
+        const md5 = new Md5();
+        registerData.password = md5.appendStr(registerData.password).end();
+
+        this.authService.register(registerData);
 
         if (this.authService.redirectUrl) {
             this.router.navigateByUrl(this.authService.redirectUrl);

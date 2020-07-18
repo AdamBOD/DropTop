@@ -41,9 +41,10 @@ namespace DropTop.API
             services.AddCors(options =>
             {
                 options.AddPolicy(_corsPolicy, builder => builder
-                    .WithOrigins("https://retr.one")
                     .WithOrigins("http://localhost:4200")
                     .WithOrigins("http://localhost:6200")
+                    .WithOrigins("https://localhost:4200")
+                    .WithOrigins("https://localhost:6200")
                     .AllowCredentials()
                     .AllowAnyMethod()
                     .AllowAnyHeader()

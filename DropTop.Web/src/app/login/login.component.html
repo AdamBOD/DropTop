@@ -5,9 +5,9 @@
     <div class="userForm">
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
             <div class="row form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" #username="ngModel" [ngClass]="{'hasError': !username.valid && username.touched}" id="username" name="username" placeholder="Username" required minlength="4" ngModel>
-                <small class="form-text text-muted" [ngClass]="{'visible': !username.valid && username.touched}">Username must be longer than four characters</small>
+                <label for="email">Email</label>
+                <input type="text" class="form-control" #email="ngModel" [ngClass]="{'hasError': !email.valid && email.touched}" id="email" name="email" placeholder="Email" required minlength="4" ngModel>
+                <small class="form-text text-muted" [ngClass]="{'visible': !email.valid && email.touched}">Email must be longer than four characters</small>
             </div>
             <div class="row form-group">
                 <label for="password">Password</label>

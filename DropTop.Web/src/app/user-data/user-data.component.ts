@@ -21,7 +21,9 @@ export class UserDataComponent implements OnInit {
   ngOnInit() {
     this.dataService.getData()
       .subscribe (res => {
-        this.userData = res;
+            if (res.length > 0) {
+                this.userData = res;
+            }
       }, err => {
         console.log (err);
     });

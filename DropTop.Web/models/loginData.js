@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var loginDetailsData = new mongoose.Schema ({
-    username: String,
+    email: String,
     password: String,
     currentSessions: []
 });

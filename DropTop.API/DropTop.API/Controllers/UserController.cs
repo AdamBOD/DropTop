@@ -57,6 +57,7 @@ namespace DropTop.API.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Post(UserUploadModel user)
         {
             var context = new DropTopContext();

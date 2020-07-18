@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace DropTop.API.Models
 {
@@ -9,7 +9,6 @@ namespace DropTop.API.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        [JsonIgnore]
         public byte[] Password { get; set; }
         public bool Verified { get; set; }
         public bool Temporary { get; set; }

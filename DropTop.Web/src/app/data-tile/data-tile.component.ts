@@ -41,7 +41,7 @@ export class DataTileComponent implements OnInit {
   }
 
   public editTile () {
-    this.dataService.getDataById(this.data._id)
+    this.dataService.getDataById(this.data.id)
         .subscribe (res => {
           this.eventService.createEditModalEvent (res);
         }, err => {

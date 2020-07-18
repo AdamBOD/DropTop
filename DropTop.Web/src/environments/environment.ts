@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  isMobile: false
+  isMobile: false,
+  apiUrl: "http://localhost:51112"
 };
 
 /*
