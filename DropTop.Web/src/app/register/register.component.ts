@@ -75,8 +75,7 @@ export class RegisterComponent implements OnInit {
                 this.router.navigate(['/home']);
             }
         }, err => {
-            console.log (err);
-            //TO-DO: Add enhanced messages etc
+            this.errorMessage = err.error;
         });
     }
 

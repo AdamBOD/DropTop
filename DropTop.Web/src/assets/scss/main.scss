@@ -262,10 +262,11 @@ html {
                         }
 
                         .form-text {
+                            color: #ee2f2f !important;
+
                             display: none;
 
                             &.visible {
-                                color: #ee2f2f !important;
                                 display: block;
                             }
                         }
@@ -303,6 +304,18 @@ html {
                         visibility: visible;
                     }
                 }
+            }
+
+            .form-error {
+                height: 24px;
+                
+                color: #ee2f2f !important;
+
+                margin-left: -15px;
+                margin-right: -15px;
+                margin-top: 12px;
+
+                font-size: 15px;
             }
         }
 
@@ -359,10 +372,11 @@ html {
                             }
 
                             .form-text {
+                                color: #ee2f2f !important;
+
                                 display: none;
     
                                 &.visible {
-                                    color: #ee2f2f !important;
                                     display: block;
                                 }
                             }

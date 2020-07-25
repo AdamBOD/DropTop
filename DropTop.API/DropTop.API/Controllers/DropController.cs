@@ -96,13 +96,11 @@ namespace DropTop.API.Controllers
         {
             var context = new DropTopContext();
 
-            var drop = new Drop()
-            {
-                Id = Guid.Parse(dropId)
-            };
+            var drop = await context.Drop.FindAsync(Guid.Parse(dropId));
 
-            context.Drop.Attach(drop);
-            context.Drop.Remove(drop);
+            drop.Deleted = true;
+
+            context.Drop.Update(drop);
 
             await context.SaveChangesAsync();
 
