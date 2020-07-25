@@ -22,6 +22,10 @@ export class RegisterComponent implements OnInit {
     }
 
     ngOnInit () {
+        if (localStorage.getItem('token') != null && localStorage.getItem('token') != '') {
+            this.router.navigate(['/home']);
+        }
+
         this.registerForm.setValue({
             firstName: '',
             lastName: '',
@@ -65,16 +69,15 @@ export class RegisterComponent implements OnInit {
         registerData.password = md5.appendStr(registerData.password).end();
 
         this.authService.register(registerData).subscribe (res => {
-            console.log ("Registered")
             if (this.authService.redirectUrl) {
                 this.router.navigateByUrl(this.authService.redirectUrl);
             } else {
                 this.router.navigate(['/home']);
             }
-        });// }, error => {
-        //     console.log ("We have an error")
-        //     console.error(error);
-        // });
+        }, err => {
+            console.log (err);
+            //TO-DO: Add enhanced messages etc
+        });
     }
 
 }

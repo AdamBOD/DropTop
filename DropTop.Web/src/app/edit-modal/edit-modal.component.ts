@@ -47,7 +47,7 @@ export class EditModalComponent implements OnInit {
     var putData = {};
     putData['name'] = name;
     putData['data'] = data;
-    putData['_id'] = this.data._id
+    putData['id'] = this.data.id
     
     var putResponse = this.dataService.putData (putData).subscribe (
       data => {

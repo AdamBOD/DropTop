@@ -73,5 +73,40 @@ namespace DropTop.API.Controllers
 
             return Ok();
         }
+
+        [HttpPut("drop")]
+        public async Task<IActionResult> Put([FromBody]DropUploadModel dropUpdate)
+        {
+            var context = new DropTopContext();
+
+            var drop = await context.Drop.FindAsync(Guid.Parse(dropUpdate.Id));
+
+            drop.Name = dropUpdate.Name;
+            drop.Data = dropUpdate.Data;
+
+            context.Drop.Update(drop);
+
+            await context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpDelete("drop")]
+        public async Task<IActionResult> Delete(string dropId)
+        {
+            var context = new DropTopContext();
+
+            var drop = new Drop()
+            {
+                Id = Guid.Parse(dropId)
+            };
+
+            context.Drop.Attach(drop);
+            context.Drop.Remove(drop);
+
+            await context.SaveChangesAsync();
+
+            return Ok();
+        }
     }
 }

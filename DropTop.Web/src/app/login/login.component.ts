@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit () {
+        if (localStorage.getItem('token') != null && localStorage.getItem('token') != '') {
+            this.router.navigate(['/home']);
+        }
+
         this.loginForm.setValue({
             email: '',
             password: ''
@@ -37,29 +41,24 @@ export class LoginComponent implements OnInit {
         const md5 = new Md5();
         let email = loginData.email;
         let password = md5.appendStr(loginData.password).end();
-        console.log (email)
-        console.log (password)
 
         this.authService.login(email, password.toString()).subscribe(res => {
-                if (res != null) {
-                    localStorage.setItem('email', res["email"]);
-                    localStorage.setItem('firstName', res["firstName"]);
-                    localStorage.setItem('lastName', res["lastName"]);
-                    localStorage.setItem('userId', res["id"]);
-                    localStorage.setItem('token', res["token"])
-                    
-                    console.log ("Logged in")
-
-                    
-                    if (this.authService.redirectUrl) {
-                        this.router.navigateByUrl(this.authService.redirectUrl);
-                    } else {
-                        this.router.navigate(['/home']);
-                    }
+            if (res != null) {
+                localStorage.setItem('email', res["email"]);
+                localStorage.setItem('firstName', res["firstName"]);
+                localStorage.setItem('lastName', res["lastName"]);
+                localStorage.setItem('userId', res["id"]);
+                localStorage.setItem('token', res["token"])
+                
+                if (this.authService.redirectUrl) {
+                    this.router.navigateByUrl(this.authService.redirectUrl);
+                } else {
+                    this.router.navigate(['/home']);
                 }
-            }, error => {
-                console.error(error);
-            });
+            }
+        }, error => {
+            console.error(error);
+        });
     }
 
 }

@@ -39,34 +39,26 @@ export class DataService {
     public postData(postData) {
         postData.CreatedBy = localStorage.getItem('userId');
         postData.CreatedOn = new Date();
-        console.log (postData)
         return this.http.post(`${apiUrl}/drop`, postData, httpOptions).pipe(
             map(data => { }),
             catchError(this.handleError));
     }
 
     public putData(putData) {
-        var options = {
-            headers: new HttpHeaders,
-            body: putData
-        };
+        var options = httpOptions;
+        console.log (options)
 
-        let updateApiUrl: string = `${apiUrl}/${putData._id}`;
+        let updateApiUrl: string = `${apiUrl}/drop`;
 
-        return this.http.put(updateApiUrl, options).pipe(
+        return this.http.put(updateApiUrl, putData, options).pipe(
             map(data => { }),
             catchError(this.handleError));
     }
 
     public deleteData(data) {
-        var options = {
-            headers: new HttpHeaders,
-            body: data
-        };
+        let deleteApiUrl: string = `${apiUrl}/drop?dropId=${data.id}`;
 
-        let deleteApiUrl: string = `${apiUrl}/${data._id}`;
-
-        return this.http.delete(deleteApiUrl, options).pipe(
+        return this.http.delete(deleteApiUrl, httpOptions).pipe(
             map(data => { }),
             catchError(this.handleError));
     }
