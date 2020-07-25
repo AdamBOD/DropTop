@@ -5,12 +5,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { environment } from "src/environments/environment";
 
-const httpOptions = {
-    headers: new HttpHeaders({ 
-        'Content-Type': 'application/json',
-        "Authorization": "Bearer " + localStorage.getItem('token')
-    })
-};
+let httpOptions;
 const apiUrl = `${environment.apiUrl}/Drop`;
 
 @Injectable({
@@ -18,7 +13,14 @@ const apiUrl = `${environment.apiUrl}/Drop`;
 })
 export class DataService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+        httpOptions  = {
+            headers: new HttpHeaders({ 
+                'Content-Type': 'application/json',
+                "Authorization": "Bearer " + localStorage.getItem('token')
+            })
+        };
+    }
 
     public getData(): Observable<any> {
         return this.http.get(`${apiUrl}/drops?userId=${localStorage.getItem('userId')}`, httpOptions).pipe(
