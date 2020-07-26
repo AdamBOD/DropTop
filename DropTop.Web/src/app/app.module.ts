@@ -22,6 +22,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { SettingsComponent } from './user-data/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DeleteModalComponent } from './delete-modal/delete-modal.component';
     DataTileComponent,
     CreateFormComponent,
     EditModalComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

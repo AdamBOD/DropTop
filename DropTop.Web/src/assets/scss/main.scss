@@ -6,6 +6,26 @@ html {
         margin: 0px;
         background-color: #f9f9f9;
 
+        .button {
+            padding: 10px 15px;
+
+            background-color: #51bfe0;
+            color: #f9f9f9;
+            
+            border: none;
+            border-radius: 5px;
+            outline: none;
+
+            font-size: 20px;
+            
+            cursor: pointer;
+
+            &:hover {
+                background-color: #4aabc8;
+            }
+        }
+
+
         &.overlayOpen {
             overflow: hidden;
         }
@@ -21,18 +41,30 @@ html {
 
         .jumbotron {
             width: 100%;
-            height: 10%;
-            background-color: gray;
-            padding: 0px 32px 0px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 15%;
+            background-color: #ececec;
             border-radius: 0;
+            border-bottom: 0.5px solid #dbdbdb;
             margin: 0;
+            padding: 0;
+
+            div {
+                .header-image {
+                    height: 165px;
+                    padding-left: 20px;
+                    padding-top: 32px;
+                }
+
+                h2 {
+                    margin-top: 75px;
+                    margin-left: -35px;
+                }
+            }
         }
+
         .mainBody {
             width: 100%;
-            height: calc(90% - 20px);
+            height: calc(85% - 20px);
 
             app-root {
                 width: 100%;
@@ -43,6 +75,10 @@ html {
                 mat-tab-header {
                     .mat-tab-label-container {
                         .mat-tab-list {
+                            .mat-ink-bar {
+                                background-color: #51bfe0;
+                            }
+
                             .mat-tab-labels {
                                 .mat-tab-label {
                                     width: 33.33%;
@@ -218,7 +254,7 @@ html {
                     color: #ffffff;
                     font-size: 70px;
                     position: absolute;
-                    left: 20.5%;
+                    left: 21%;
                     top: 37%;
                     user-select: none;
                 }
@@ -316,6 +352,30 @@ html {
                 margin-top: 12px;
 
                 font-size: 15px;
+            }
+
+            .settings-container {
+                width: 100%;
+
+                padding: 35px 50px;
+
+                .settings {
+                    width: 60%;
+                    height: 100%;
+
+                    margin: auto;
+
+                    .button-container {
+                        width: 30%;
+                    
+                        margin: auto;
+
+                        .logout-button {
+                            width: 100%;
+                        }
+                    }
+                    
+                }
             }
         }
 
