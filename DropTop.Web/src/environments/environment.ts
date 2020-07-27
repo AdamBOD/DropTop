@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   isMobile: false,
-  apiUrl: "http://localhost:51112"
+  //apiUrl: "http://localhost:51112"
+  apiUrl: "https://localhost/DropTop"
 };
 
 /*
