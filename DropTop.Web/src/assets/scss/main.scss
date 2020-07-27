@@ -275,6 +275,10 @@ html {
                     top: -75px;
                     left: calc(50% - 50px);
 
+                    &.register {
+                        top: -120px;
+                    }
+
                     img {
                         width: 100px;
                         height: 100px;
