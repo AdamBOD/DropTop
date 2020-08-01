@@ -42,9 +42,9 @@ export class UserDataComponent implements OnInit {
     private getData() {
         this.dataService.getData()
             .subscribe(res => {
+                this.dataLoaded = true;
                 if (res.length > 0) {
                     this.userData = res;
-                    this.dataLoaded = true;
                 }
             }, err => {
                 console.log(err);
