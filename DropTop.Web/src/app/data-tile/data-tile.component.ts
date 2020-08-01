@@ -80,6 +80,6 @@ export class DataTileComponent implements OnInit {
   }
 
   private removeTial () {
-    this.eventService.removeUserDataEvent(this.data._id);
+    this.eventService.removeUserDataEvent(this.data.id);
   }
 }

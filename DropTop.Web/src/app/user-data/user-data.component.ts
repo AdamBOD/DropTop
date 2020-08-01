@@ -53,7 +53,7 @@ export class UserDataComponent implements OnInit {
 
     private removeUserData(userDataID: UserData) {
         this.userData.forEach((element, index, object) => {
-            if (element._id == userDataID) {
+            if (element.id == userDataID) {
                 object.splice(index, 1);
             }
         });
