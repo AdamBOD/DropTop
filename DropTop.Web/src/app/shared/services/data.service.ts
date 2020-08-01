@@ -46,7 +46,6 @@ export class DataService {
 
     public putData(putData) {
         var options = httpOptions;
-        console.log (options)
 
         let updateApiUrl: string = `${apiUrl}/drop`;
 

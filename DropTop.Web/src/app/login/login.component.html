@@ -1,6 +1,6 @@
 <div class="form-container container-fluid">
     <div class="logoContainer">
-        <img alt="Logo" src="../../assets/images/icon.png">
+        <img alt="Logo" src="/assets/images/icon.png">
     </div>
     <div class="userForm">
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" (keyup.enter)="login(loginForm.value)">
@@ -15,7 +15,7 @@
                 <small class="form-text text-muted" [ngClass]="{'visible': !password.valid && password.touched}">Password must be at least eight characters</small>
             </div>
             <div class="row form-group">
-                <button type="submit" class="btn btn-primary col-md-4" [disabled]="!loginForm.valid">Log In</button>
+                <button type="submit" class="button col-md-4" [disabled]="!loginForm.valid" [ngClass]="{'disabled': buttonDisabled}">{{ actionButtonText }}<img src="/assets/svg/loading_white.svg"></button>
                 <div class="col-md-8 loginLinkContainer"><a [routerLink]="['/register']">Don't have an account?</a></div>
             </div>
         </form>

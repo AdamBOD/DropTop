@@ -41,14 +41,14 @@ namespace DropTop.API
             services.AddCors(options =>
             {
                 options.AddPolicy(_corsPolicy, builder => builder
-                    //.WithOrigins("http://localhost:4200")
-                    //.WithOrigins("http://localhost:6200")
-                    //.WithOrigins("https://localhost:4200")
-                    //.WithOrigins("https://localhost:6200")
-                    //.WithOrigins("https://drop-top.io")
-                    //.WithOrigins("https://drop-top-io.web.app")
-                    .AllowAnyOrigin()
-                    //.AllowCredentials()
+                    .WithOrigins("http://localhost:4200")
+                    .WithOrigins("http://localhost:6200")
+                    .WithOrigins("https://localhost:4200")
+                    .WithOrigins("https://localhost:6200")
+                    .WithOrigins("https://drop-top.io")
+                    .WithOrigins("https://www.drop-top.io")
+                    .WithOrigins("https://drop-top-io.web.app")
+                    .AllowCredentials()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .SetIsOriginAllowed((host) => true));

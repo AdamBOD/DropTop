@@ -1,5 +1,5 @@
 <div class="form-container container-fluid">
-  <div class="creationForm">
+  <div class="creation-form">
     <form #createEntryForm="ngForm" (ngSubmit)="create(createEntryForm)">
       <div class="row form-group">
         <label for="name">Name</label>
@@ -14,7 +14,7 @@
         <small class="form-text" [ngClass]="{'visible text-danger': !dataFromUser.valid && dataFromUser.touched}">Data can't be empty</small>
       </div>
       <div class="row form-group">
-        <button type="submit" class="btn btn-primary col-md-4" [disabled]="!createEntryForm.valid">Create Entry</button>
+        <button type="submit" class="button col-md-6" [disabled]="!createEntryForm.valid" [ngClass]="{'disabled': buttonDisabled}">{{ actionButtonText }}<img src="/assets/svg/loading_white.svg"></button>
       </div>
     </form>
   </div>

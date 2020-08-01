@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     errorMessage: string;
     loggingIn: boolean = false;
+    actionButtonText: string = "Log In";
+    buttonDisabled: boolean = false;
 
     constructor(private authService: AuthService,
         private router: Router,
@@ -39,6 +41,9 @@ export class LoginComponent implements OnInit {
     }
 
     login (loginData: any) {
+        this.actionButtonText = "";
+        this.buttonDisabled = true;
+
         if (!this.loggingIn && loginData.email != undefined && loginData.email != "" && loginData.password != undefined && loginData.password != "") {
             this.loggingIn = true;
             const md5 = new Md5();
@@ -63,6 +68,8 @@ export class LoginComponent implements OnInit {
             }, error => {
                 this.loggingIn = false;
                 this.errorMessage = error.error.message;
+                this.actionButtonText = "Log In";
+                this.buttonDisabled = false;
             });
                 
         }

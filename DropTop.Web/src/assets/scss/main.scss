@@ -23,6 +23,10 @@ html {
             &:hover {
                 background-color: #4aabc8;
             }
+
+            &:disabled {
+                background-color: #82cfe6;
+            }
         }
 
 
@@ -317,6 +321,26 @@ html {
 
                         button {
                             width: 125px;
+
+                            padding: 7px 10px;
+
+                            font-size: 16px;
+
+                            &.disabled {
+                                pointer-events: none;
+
+                                img {
+                                    display: block;
+                                }
+                            }
+
+                            img {
+                                height: 20px;
+
+                                margin: auto;
+
+                                display: none;
+                            }
                         }
 
                         .loginLinkContainer {
@@ -330,6 +354,35 @@ html {
                             }
                         }
                     }
+                }
+
+                .creation-form {
+                    form {
+                        div {
+                            .button {
+                                padding: 7px 10px;
+                                    
+                                font-size: 16px;
+
+                                &.disabled {
+                                    pointer-events: none;
+    
+                                    img {
+                                        display: block;
+                                    }
+                                }
+    
+                                img {
+                                    height: 20px;
+    
+                                    margin: auto;
+    
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    
                 }
 
                 input.hasError {

@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
     errorMessage: string;
     password: string;
     passwordsMatch = false;
+    actionButtonText: string = "Register";
+    buttonDisabled: boolean = false;
 
     constructor(private authService: AuthService,
         private router: Router,
@@ -65,6 +67,9 @@ export class RegisterComponent implements OnInit {
     }
 
     register (registerData: any) {
+        this.actionButtonText = "";
+        this.buttonDisabled = true;
+
         const md5 = new Md5();
         registerData.password = md5.appendStr(registerData.password).end();
 
@@ -75,6 +80,8 @@ export class RegisterComponent implements OnInit {
                 this.router.navigate(['/home']);
             }
         }, err => {
+            this.actionButtonText = "Register";
+            this.buttonDisabled = false;
             this.errorMessage = err.error;
         });
     }

@@ -9,6 +9,8 @@ import { EventService } from 'src/app/shared/services/events.service';
 })
 export class CreateFormComponent implements OnInit {
   createEntryForm: FormGroup;
+  actionButtonText: string = "Create Entry";
+  buttonDisabled: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private dataService: DataService,
@@ -27,6 +29,9 @@ export class CreateFormComponent implements OnInit {
   }
 
   create (createEntryData: NgForm) {
+    this.actionButtonText = "";
+    this.buttonDisabled = true;
+
     let name = createEntryData.value.name;
     let data = createEntryData.value.dataFromUser;
 
@@ -36,10 +41,15 @@ export class CreateFormComponent implements OnInit {
     
     var postResponse = this.dataService.postData (postData).subscribe (
       data => {
+        this.actionButtonText = "Create Entry";
+        this.buttonDisabled = false;
+
         createEntryData.reset();
         this.createdHandler();
       },
       error => {
+        this.actionButtonText = "Create Entry";
+        this.buttonDisabled = false;
         console.log (error);
       }
     );
