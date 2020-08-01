@@ -1,0 +1,24 @@
+<div class="form-container container-fluid">
+    <div class="logoContainer">
+        <img alt="Logo" src="/assets/images/icon.png">
+    </div>
+    <div class="userForm">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" (keyup.enter)="login(loginForm.value)">
+            <div class="row form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" #email="ngModel" [ngClass]="{'hasError': !email.valid && email.touched}" id="email" name="email" placeholder="Email" required minlength="4" ngModel>
+                <small class="form-text text-muted" [ngClass]="{'visible': !email.valid && email.touched}">Email must be longer than four characters</small>
+            </div>
+            <div class="row form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" #password="ngModel" [ngClass]="{'hasError': !password.valid && password.touched}" id="password" name="password" placeholder="Password" required minlength="8"ngModel>
+                <small class="form-text text-muted" [ngClass]="{'visible': !password.valid && password.touched}">Password must be at least eight characters</small>
+            </div>
+            <div class="row form-group">
+                <button type="submit" class="button col-md-4" [disabled]="!loginForm.valid" [ngClass]="{'disabled': buttonDisabled}">{{ actionButtonText }}<img src="/assets/svg/loading_white.svg"></button>
+                <div class="col-md-8 loginLinkContainer"><a [routerLink]="['/register']">Don't have an account?</a></div>
+            </div>
+        </form>
+        <p class="form-error">{{ errorMessage }}</p>
+    </div>
+</div>

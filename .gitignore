@@ -1,41 +1,51 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# DropTop.Web
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+/DropTop.Web/dist
+/DropTop.Web/tmp
+/DropTop.Web/out-tsc
 
 # dependencies
-/node_modules
+/DropTop.Web/node_modules
 
 # IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+/DropTop.Web/.idea
+/DropTop.Web/.project
+/DropTop.Web/.classpath
+/DropTop.Web/.c9/
+/DropTop.Web/*.launch
+/DropTop.Web/.settings/
+/DropTop.Web/*.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+/DropTop.Web/.vscode/*
+/DropTop.Web/!.vscode/settings.json
+/DropTop.Web/!.vscode/tasks.json
+/DropTop.Web/!.vscode/launch.json
+/DropTop.Web/!.vscode/extensions.json
 
 # misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+/DropTop.Web/.sass-cache
+/DropTop.Web/connect.lock
+/DropTop.Web/coverage
+/DropTop.Web/libpeerconnection.log
+/DropTop.Web/npm-debug.log
+/DropTop.Web/yarn-error.log
+/DropTop.Web/testem.log
+/DropTop.Web/typings
 
 # System Files
-.DS_Store
-Thumbs.db
-extension/extension.zip
-extension/Firefox/Firefox.zip
+/DropTop.Web/.DS_Store
+/DropTop.Web/Thumbs.db
+/DropTop.Web/extension/extension.zip
+/DropTop.Web/extension/Firefox/Firefox.zip
+
+# DropTop.API
+
+# compiled output
+/DropTop.API/DropTop.API/bin
+/DropTop.API/DropTop.API/obj
+/DropTop.API/DropTop.API/debug
+
+# IDE - VS
+/DropTop.API/DropTop.API/.vs

@@ -1,0 +1,669 @@
+$translatePixels: -6.25px;
+html {
+    height: 100%;
+    body {
+        height: 100%;
+        margin: 0px;
+        background-color: #f9f9f9;
+
+        .button {
+            padding: 10px 15px;
+
+            background-color: #51bfe0;
+            color: #f9f9f9;
+            
+            border: none;
+            border-radius: 5px;
+            outline: none;
+
+            font-size: 20px;
+            
+            cursor: pointer;
+
+            &:hover {
+                background-color: #4aabc8;
+            }
+
+            &:disabled {
+                background-color: #82cfe6;
+            }
+        }
+
+
+        &.overlayOpen {
+            overflow: hidden;
+        }
+
+        &.iframeFormat {
+            width: 90%;
+            margin-left: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .jumbotron {
+            width: 100%;
+            height: 15%;
+            background-color: #ececec;
+            border-radius: 0;
+            border-bottom: 0.5px solid #dbdbdb;
+            margin: 0;
+            padding: 0;
+
+            div {
+                .header-image {
+                    height: 165px;
+                    padding-left: 20px;
+                    padding-top: 32px;
+                }
+
+                h2 {
+                    margin-top: 75px;
+                    margin-left: -35px;
+                }
+            }
+        }
+
+        .mainBody {
+            width: 100%;
+            height: calc(85% - 20px);
+
+            app-root {
+                width: 100%;
+                height: 100%;
+            }
+
+            mat-tab-group {
+                mat-tab-header {
+                    .mat-tab-label-container {
+                        .mat-tab-list {
+                            .mat-ink-bar {
+                                background-color: #51bfe0;
+                            }
+
+                            .mat-tab-labels {
+                                .mat-tab-label {
+                                    width: 33.33%;
+                                }
+
+                                mat-ink-bar {
+                                    width: 33.33%;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .mat-tab-body-wrapper {
+                    mat-tab-body {
+                        margin-left: 35px;
+                        margin-right: 35px;
+                    }
+                }
+            }
+
+            .dataTileContainer {
+                .loading-spinner {
+                    width: 200px;
+                    height: 200px;
+
+                    margin-left: calc(50% - 100px);
+                    margin-right: calc(50% - 100px);
+                }
+
+                .dataTileRow {
+                    app-data-tile {
+                        .dataTile {
+                            margin: 10px 0px 10px 0px;
+                            padding: 15px;
+                            height: auto;
+                            max-height: 200px;
+                            background-color: #80808042;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            -webkit-transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out, opacity 0.3s ease-in-out;
+                            -moz-transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out, opacity 0.3s ease-in-out;
+                            -ms-transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out, opacity 0.3s ease-in-out;
+                            -o-transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out, opacity 0.3s ease-in-out;
+                            transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out, opacity 0.3s ease-in-out;
+        
+                            &:hover {
+                                background-color: #80808073;
+
+                                div {
+                                    i {
+                                        visibility: visible;
+                                    }
+                                }
+                            }
+
+                            &.deleted {
+                                max-height: 0px;
+                                opacity: 0;
+                            }
+
+                            .dataName {
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                padding-bottom: 2px;
+                            }
+        
+                            a {
+                                width: 100%;
+                                height: auto;
+                                line-height: 25px;
+                                font-size: 20px;
+                                font-weight: 500;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                display: block;
+                                overflow: hidden;
+
+                                &:hover {
+                                    text-decoration: none;
+                                    background-color: #80808095;
+                                    color: #000000;
+                                }
+                            }
+
+                            textarea {
+                                border: none;
+                                position: absolute;
+                                top: -1000px;
+                                left: -1000px;
+                            }
+
+                            span {
+                                width: 100%;
+                                font-size: 20px;
+                                height: auto;
+                                line-height: 25px;
+                                margin-bottom: 7px;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                display: block;
+                                overflow: hidden;
+                            }
+
+                            div {
+                                i {
+                                    height: 24px;
+                                    font-size: 24px;
+                                    margin-top: 20px;
+                                    color: #727171;
+                                    visibility: hidden;
+
+                                    &:hover {
+                                        color: #212529;
+                                    }
+
+                                    &.delete:hover {
+                                        color: #ee2f2f;
+                                    }
+
+                                    &.fa-clipboard {
+                                        &.hidden {
+                                            display: none;
+                                        }
+                                    }
+
+                                    &.fa-check {
+                                        color: #3d8d36;
+                                        display: none;
+
+                                        &.visible {
+                                            display: block;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .toolbar {
+                height: 100%;
+                width: 15%;
+                background-color: gray;
+                float: left;
+            }
+
+            .displayArea {
+                height: 100%;
+                width: 85%;
+                background-color: lightgray;
+                float: left;
+            }
+
+            .addButton {
+                width: 70px;
+                height: 70px;
+                background-color: #48a740;
+                position: fixed;
+                bottom: 15px;
+                right: 15px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.25s ease-in-out 0s;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 1;
+
+                &.visible {
+                    opacity: 1;
+                    visibility: visible;
+
+                    &:hover {
+                        background-color: #3d8d36;
+                    }
+                }
+
+                span {
+                    color: #ffffff;
+                    font-size: 70px;
+                    position: absolute;
+                    left: 21%;
+                    top: 37%;
+                    user-select: none;
+                }
+            }
+
+            .form-container {
+                width: 300px;
+                height: 350px;
+
+                display: table;
+                position: relative;
+
+                margin: auto;
+                margin-top: 200px;
+
+                .logoContainer {
+                    position: absolute;
+                    top: -75px;
+                    left: calc(50% - 50px);
+
+                    &.register {
+                        top: -120px;
+                    }
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+
+                .userForm {
+                    display: table-cell;
+                    vertical-align: middle;
+
+                    .row {
+                        margin-bottom: 15px;
+
+                        input {
+                            width: 100%;
+
+                            &.hasError {
+                                border: 1px solid #ee2f2f;
+                                background-color: #ffdcdc;
+                            }
+                        }
+
+                        .form-text {
+                            color: #ee2f2f !important;
+
+                            display: none;
+
+                            &.visible {
+                                display: block;
+                            }
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+
+                        button {
+                            width: 125px;
+
+                            padding: 7px 10px;
+
+                            font-size: 16px;
+
+                            &.disabled {
+                                pointer-events: none;
+
+                                img {
+                                    display: block;
+                                }
+                            }
+
+                            img {
+                                height: 20px;
+
+                                margin: auto;
+
+                                display: none;
+                            }
+                        }
+
+                        .loginLinkContainer {
+                            position: relative;
+
+                            a {
+                                color: #007bff;
+                                position: absolute;
+                                bottom: 0;
+                                right: 0
+                            }
+                        }
+                    }
+                }
+
+                .creation-form {
+                    form {
+                        div {
+                            .button {
+                                padding: 7px 10px;
+                                    
+                                font-size: 16px;
+
+                                &.disabled {
+                                    pointer-events: none;
+    
+                                    img {
+                                        display: block;
+                                    }
+                                }
+    
+                                img {
+                                    height: 20px;
+    
+                                    margin: auto;
+    
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+
+                input.hasError {
+                    border: 1px solid #ee2f2f;
+                    background-color: #ffdcdc;
+                }
+
+                .form-text {
+                    visibility: hidden;
+
+                    &.visibile {
+                        visibility: visible;
+                    }
+                }
+            }
+
+            .form-error {
+                height: 24px;
+                
+                color: #ee2f2f !important;
+
+                margin-left: -15px;
+                margin-right: -15px;
+                margin-top: 12px;
+
+                font-size: 15px;
+            }
+
+            .settings-container {
+                width: 100%;
+
+                padding: 35px 50px;
+
+                .settings {
+                    width: 60%;
+                    height: 100%;
+
+                    margin: auto;
+
+                    .button-container {
+                        width: 30%;
+                    
+                        margin: auto;
+
+                        .logout-button {
+                            width: 100%;
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        app-edit-modal, app-delete-modal {
+            .modalContainer {
+                &.open {
+                    .modalOverlay {
+                        opacity: 1;
+                    }
+                    
+                    .editModal, .deleteModal {
+                        opacity: 1;
+                    }
+                }
+                .modalOverlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #29262673;
+                    z-index: 1;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                }
+
+                .editModal, .deleteModal {
+                    width: 30%;
+                    height: 35%;                    
+                    position: fixed;
+                    left: 35%;
+                    top: 32.5%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #f9f9f9;
+                    border-radius: 5px;
+                    z-index: 9999;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+
+                    .updateForm, .deleteContainer {
+                        width: 80%;
+                        margin: auto;
+
+                        .row {
+                            margin-bottom: 15px;
+
+                            &:last-child {
+                                margin-bottom: 0px;
+                            }
+
+                            .form-text {
+                                color: #ee2f2f !important;
+
+                                display: none;
+    
+                                &.visible {
+                                    display: block;
+                                }
+                            }
+
+                            input.hasError {
+                                border: 1px solid #ee2f2f;
+                                background-color: #ffdcdc;
+                            }
+                        }
+                    }
+                }
+
+                .deleteModal {
+                    height: 20%;
+
+                    span {
+                        font-size: 22px;
+                        padding-bottom: 15px;
+                    }
+                    
+                    .row {
+                        .deleteButton {
+                            background-color: #ee2f2f;
+                            border-color: #ee2f2f;
+
+                            &:hover {
+                                background-color: #d60101;
+                            border-color: #bb0202;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3.5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888888;
+    border-radius: 3.5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #727171;
+}
+
+@media (max-width: 450px) {
+    html {
+        body {
+            .jumbotron {
+                display: none;
+            }
+
+            .mainBody {
+                height: 100%;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                mat-tab-group {                    
+                    .mat-tab-body-wrapper {
+                        mat-tab-body {
+                            margin-left: 0px;
+                            margin-right: 0px;
+                        }
+                    }
+                }
+
+                .dataTileContainer {
+                    width: 100%;
+                    height: 100%;
+    
+                    margin: 0px;
+
+                    .dataTileRow {
+                        app-data-tile {
+                            .dataTile {
+                                padding: 5px 15px;
+
+                                h2{
+                                    font-size: 38px;
+                                    margin: 12px 0px;
+                                }
+
+                                div {
+                                    i {
+                                        color: #212529;
+                                        visibility: visible;
+    
+                                        &.delete {
+                                            color: #ee2f2f;
+                                        }
+                                    }
+                                }                                
+                            }
+
+                            &:last-child {
+                                margin-bottom: 75px;
+                            }
+                        }
+                    }
+                }
+
+                .addButton {
+                    width: 50px;
+                    height: 50px;
+    
+                    span {
+                        font-size: 65px;
+                        left: 13.5%;
+                        top: 32%;
+                    }
+                }
+            }
+            app-edit-modal, app-delete-modal {
+                .modalContainer {
+                    .editModal, .deleteModal {
+                        width: 95%;
+                        left: 2.5%;
+                    }
+
+                    .deleteModal {
+                        span {
+                            font-size: 14px;
+                            padding-bottom: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 365px) {
+    html {
+        body {
+            .mainBody {
+                .dataTileContainer {
+                    .dataTileRow {
+                        app-data-tile {
+                            .dataTile {
+                                div {
+                                    h6 {
+                                        font-size: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<div class="form-container container-fluid">
+    <div class="logoContainer register">
+        <img alt="Logo" src="/assets/images/icon.png">
+    </div>
+    <div class="userForm">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+            <div class="row form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" #firstName="ngModel" [ngClass]="{'hasError': !firstName.valid && firstName.touched}"
+                    id="firstName" name="firstName" placeholder="First Name" required minlength="1" ngModel>
+                <small class="form-text text-muted" [ngClass]="{'visible': !firstName.valid && firstName.touched}">First Name must be at least one character</small>
+            </div>
+            <div class="row form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" #lastName="ngModel" [ngClass]="{'hasError': !lastName.valid && lastName.touched}"
+                    id="lastName" name="lastName" placeholder="Last Name" required minlength="1" ngModel>
+                <small class="form-text text-muted" [ngClass]="{'visible': !lastName.valid && lastName.touched}">Last Name must be at least one character</small>
+            </div>
+            <div class="row form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" #email="ngModel" [ngClass]="{'hasError': !email.valid && email.touched}"
+                    id="email" name="email" placeholder="Email" required minlength="4" ngModel>
+                <small class="form-text text-muted" [ngClass]="{'visible': !email.valid && email.touched}">Email must be longer than four characters</small>
+            </div>
+            <div class="row form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" #password="ngModel" [ngClass]="{'hasError': !password.valid && password.touched}"
+                    id="password" name="password" placeholder="Password" (blur)="setPassword($event)" required minlength="8" ngModel>
+                <small class="form-text text-muted" [ngClass]="{'visible': !password.valid && password.touched}">Password must be at least eight characters</small>
+            </div>
+            <div class="row form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" #confirmPassword="ngModel" [ngClass]="{'hasError': !passwordsMatch && confirmPassword.touched, 'ng-invalid': passwordsMatch}"
+                    id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" (ngModelChange)="checkPasswordsMatch($event, confirmPassword)" required minlength="8" ngModel>
+                <small class="form-text text-muted" [ngClass]="{'visible': !passwordsMatch && confirmPassword.touched}">Passwords must match</small>
+            </div>
+            <div class="row form-group">
+                <button type="submit" class="button col-md-4" [disabled]="!registerForm.valid || !passwordsMatch" [ngClass]="{'disabled': buttonDisabled}">{{ actionButtonText }}<img src="/assets/svg/loading_white.svg"></button>
+                <div class="col-md-8 loginLinkContainer">
+                    <a [routerLink]="['/login']">Already have an account?</a>
+                </div>
+            </div>
+        </form>
+        <p class="form-error">{{ errorMessage }}</p>
+    </div>
+</div>

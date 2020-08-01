@@ -1,0 +1,19 @@
+<mat-tab-group [selectedIndex]="tabsIndex" (selectedTabChange)="tabChanged($event)">
+    <mat-tab label="Create">
+        <app-create-form></app-create-form>
+    </mat-tab>
+
+    <mat-tab label="View">
+        <div class="container-fluid dataTileContainer">
+            <img *ngIf="!dataLoaded" class="loading-spinner" src="/assets/svg/loading_blue.svg">
+            <div  *ngIf="dataLoaded" class="row dataTileRow">
+                <app-data-tile *ngFor="let dataEntry of userData" [data]="dataEntry" class="col-lg-2 col-xs-12"></app-data-tile>
+            </div>
+        </div>        
+    </mat-tab>
+    <mat-tab label="Settings"><app-settings></app-settings></mat-tab>
+</mat-tab-group>
+
+<div class="addButton" [ngClass]="{'visible': addButtonVisible}" (click)="addNewButtonClicked()">
+    <span>+</span>
+</div>
