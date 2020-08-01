@@ -34,7 +34,7 @@ namespace DropTop.API.Controllers
 
             var context = new DropTopContext();
 
-            var drops = await context.Drop.Where(d => d.CreatedBy == Guid.Parse(userId) && d.Deleted == false).ToListAsync();
+            var drops = await context.Drop.Where(d => d.CreatedBy == Guid.Parse(userId) && d.Deleted == false).OrderBy(d => d.CreatedOn).ToListAsync();
 
             return drops;
         }

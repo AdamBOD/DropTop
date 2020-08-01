@@ -11,8 +11,9 @@ import { browser } from 'protractor';
 export class UserDataComponent implements OnInit {
     userData;
     tabsIndex = 1;
-    addButtonVisible = true;
+    addButtonVisible: boolean = true;
     createForm: FormGroup;
+    dataLoaded: boolean = false;
 
     constructor(private dataService: DataService,
         private eventService: EventService) {
@@ -43,6 +44,7 @@ export class UserDataComponent implements OnInit {
             .subscribe(res => {
                 if (res.length > 0) {
                     this.userData = res;
+                    this.dataLoaded = true;
                 }
             }, err => {
                 console.log(err);

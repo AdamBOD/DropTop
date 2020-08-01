@@ -5,7 +5,8 @@
 
     <mat-tab label="View">
         <div class="container-fluid dataTileContainer">
-            <div class="row dataTileRow">
+            <img *ngIf="!dataLoaded" class="loading-spinner" src="/assets/svg/loading_blue.svg">
+            <div  *ngIf="dataLoaded" class="row dataTileRow">
                 <app-data-tile *ngFor="let dataEntry of userData" [data]="dataEntry" class="col-lg-2 col-xs-12"></app-data-tile>
             </div>
         </div>        

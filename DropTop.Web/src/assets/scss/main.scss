@@ -105,6 +105,14 @@ html {
             }
 
             .dataTileContainer {
+                .loading-spinner {
+                    width: 200px;
+                    height: 200px;
+
+                    margin-left: calc(50% - 100px);
+                    margin-right: calc(50% - 100px);
+                }
+
                 .dataTileRow {
                     app-data-tile {
                         .dataTile {
