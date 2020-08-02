@@ -25,9 +25,9 @@ namespace DropTop.API.Models
 #if DEBUG
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=DropTop;Trusted_Connection=True;");
-#endif
+#else
                 optionsBuilder.UseSqlServer("Server=tcp:retronedbserver.database.windows.net,1433;Database=DropTop;User ID=AdamBOD;Password=*************;Trusted_Connection=False;Encrypt=True;");
-
+#endif
             }
         }
 

@@ -42,9 +42,9 @@ export class UserDataComponent implements OnInit {
     private getData() {
         this.dataService.getData()
             .subscribe(res => {
+                this.dataLoaded = true;
                 if (res.length > 0) {
                     this.userData = res;
-                    this.dataLoaded = true;
                 }
             }, err => {
                 console.log(err);
@@ -53,7 +53,7 @@ export class UserDataComponent implements OnInit {
 
     private removeUserData(userDataID: UserData) {
         this.userData.forEach((element, index, object) => {
-            if (element._id == userDataID) {
+            if (element.id == userDataID) {
                 object.splice(index, 1);
             }
         });

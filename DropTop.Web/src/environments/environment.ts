@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   isMobile: false,
-  //apiUrl: "http://localhost:51112"
-  ///apiUrl: "https://localhost/DropTop"
-  apiUrl: "https://droptopapi20200727100917.azurewebsites.net"
+  apiUrl: "http://localhost:51112"
+  //apiUrl: "https://localhost/DropTop"
+  //apiUrl: "https://droptopapi20200727100917.azurewebsites.net"
 };
 
 /*

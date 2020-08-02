@@ -558,7 +558,61 @@ html {
     background: #727171;
 }
 
+@media (max-width: 1920px) {
+    html {
+        body {
+            .jumbotron {
+                div {
+                    .header-image {
+                        height: 130px;
+                        padding-left: 5px;
+                        padding-top: 20px;
+                    }
+
+                    h2  {
+                        margin-top: 53px;
+                    }
+                }
+            }
+
+            .mainBody {
+                .dataTileContainer {
+                    .dataTileRow {
+                        app-data-tile {
+                            .dataTile {
+                                .dataName {
+                                    margin: 12px 0px;
+                                    line-height: 49px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 450px) {
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select:focus,
+    textarea {
+        font-size: 16px !important;
+    }
+
     html {
         body {
             .jumbotron {
@@ -612,6 +666,14 @@ html {
                             &:last-child {
                                 margin-bottom: 75px;
                             }
+                        }
+                    }
+                }
+
+                .settings-container {
+                    .settings {
+                        .button-container {
+                            width: 100%;
                         }
                     }
                 }
