@@ -40,6 +40,7 @@ namespace DropTop.API
                     .WithOrigins("https://drop-top.io")
                     .WithOrigins("https://www.drop-top.io")
                     .WithOrigins("https://drop-top-io.web.app")
+                    .WithOrigins("https://www.drop-top-io.web.app")
                     .AllowCredentials()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
